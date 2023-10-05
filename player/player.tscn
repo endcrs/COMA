@@ -2946,7 +2946,7 @@ nodes/TimeScale/position = Vector2( -480, 360 )
 nodes/Walk/node = SubResource( 31 )
 nodes/Walk/position = Vector2( -680, 360 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "output", 0, "OneShot", "TimeScale 3", 0, "Shooter", "OneShot", 0, "IsMovement", "OneShot", 1, "TimeScale 3", "Blend2", 0, "TimeScale", "Blend2", 1, "TimeScale 2", "IsMovement", 0, "Idle", "IsMovement", 1, "Blend2", "TimeScale", 0, "Walk", "TimeScale 2", 0, "Run" ]
+node_connections = [ "output", 0, "OneShot", "TimeScale 2", 0, "Run", "TimeScale 3", 0, "Shooter", "TimeScale", 0, "Walk", "Blend2", 0, "TimeScale", "Blend2", 1, "TimeScale 2", "IsMovement", 0, "Idle", "IsMovement", 1, "Blend2", "OneShot", 0, "IsMovement", "OneShot", 1, "TimeScale 3" ]
 
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "parado"
@@ -2982,7 +2982,7 @@ nodes/Walk/position = Vector2( -1180, 300 )
 nodes/WalkOrRun/node = SubResource( 21 )
 nodes/WalkOrRun/position = Vector2( -760, 300 )
 nodes/output/position = Vector2( -180, 140 )
-node_connections = [ "output", 0, "IsMoviment", "IsMoviment", 0, "Idle", "IsMoviment", 1, "WalkOrRun", "TimeRun", 0, "Run", "TimeWalk", 0, "Walk", "WalkOrRun", 0, "TimeWalk", "WalkOrRun", 1, "TimeRun" ]
+node_connections = [ "output", 0, "IsMoviment", "TimeWalk", 0, "Walk", "WalkOrRun", 0, "TimeWalk", "WalkOrRun", 1, "TimeRun", "TimeRun", 0, "Run", "IsMoviment", 0, "Idle", "IsMoviment", 1, "WalkOrRun" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.2
