@@ -18,6 +18,6 @@ position = Vector2( 511.75, 563 )
 shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 510, 523 )
+position = Vector2( 281, 276 )
 
 [node name="player" parent="Position2D" instance=ExtResource( 1 )]

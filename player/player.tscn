@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://player/sprites/player_color.svg" type="Texture" id=1]
+[ext_resource path="res://player/scripts/player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 34.527
@@ -66,7 +67,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.641983, -90.0111 ) ]
+"values": [ Vector2( -0.642, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Skeleton2D/coluna:rotation_degrees")
@@ -81,7 +82,7 @@ tracks/5/keys = {
 "values": [ 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("perna_d:position")
+tracks/6/path = NodePath("Skeleton2D/perna_d:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -90,10 +91,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -2.11786, -93.6397 ) ]
+"values": [ Vector2( -2.118, -5 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("perna_d:rotation_degrees")
+tracks/7/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -105,7 +106,7 @@ tracks/7/keys = {
 "values": [ 5.59116 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("perna_e:position")
+tracks/8/path = NodePath("Skeleton2D/perna_e:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -114,10 +115,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.129066, -94.3128 ) ]
+"values": [ Vector2( -2.118, -5 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("perna_e:rotation_degrees")
+tracks/9/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -285,7 +286,7 @@ tracks/22/keys = {
 "values": [ 72.7996 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("perna_e/canela_e/pe_e:position")
+tracks/23/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -297,7 +298,7 @@ tracks/23/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("perna_e/canela_e/pe_e:rotation_degrees")
+tracks/24/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -309,7 +310,7 @@ tracks/24/keys = {
 "values": [ -0.885982 ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("perna_e/canela_e:position")
+tracks/25/path = NodePath("Skeleton2D/perna_e/canela_e:position")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -321,7 +322,7 @@ tracks/25/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("perna_e/canela_e:rotation_degrees")
+tracks/26/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -345,7 +346,7 @@ tracks/27/keys = {
 "values": [ Vector2( 6.21735, -0.0860748 ) ]
 }
 tracks/28/type = "value"
-tracks/28/path = NodePath("perna_d/canela_d/pe_d:position")
+tracks/28/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/imported = false
@@ -357,7 +358,7 @@ tracks/28/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/29/type = "value"
-tracks/29/path = NodePath("perna_d/canela_d/pe_d:rotation_degrees")
+tracks/29/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/imported = false
@@ -369,7 +370,7 @@ tracks/29/keys = {
 "values": [ -7.35709 ]
 }
 tracks/30/type = "value"
-tracks/30/path = NodePath("perna_d/canela_d:position")
+tracks/30/path = NodePath("Skeleton2D/perna_d/canela_d:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/imported = false
@@ -381,7 +382,7 @@ tracks/30/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/31/type = "value"
-tracks/31/path = NodePath("perna_d/canela_d:rotation_degrees")
+tracks/31/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/imported = false
@@ -446,7 +447,7 @@ resource_name = "andando"
 length = 4.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("perna_e/canela_e/pe_e:position")
+tracks/0/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -458,7 +459,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("perna_e/canela_e/pe_e:rotation_degrees")
+tracks/1/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -470,7 +471,7 @@ tracks/1/keys = {
 "values": [ 0.0, -10.4788, 0.0, 8.68205 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("perna_e/canela_e:position")
+tracks/2/path = NodePath("Skeleton2D/perna_e/canela_e:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -482,7 +483,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("perna_e/canela_e:rotation_degrees")
+tracks/3/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -494,7 +495,7 @@ tracks/3/keys = {
 "values": [ 1.67847, 23.1671, 26.2797, 78.9495 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("perna_e:position")
+tracks/4/path = NodePath("Skeleton2D/perna_e:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -503,10 +504,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 1, 2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ) ]
+"values": [ Vector2( -0.129, -5 ), Vector2( -0.129, -5 ), Vector2( -0.129, -5 ), Vector2( -0.129, -5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("perna_e:rotation_degrees")
+tracks/5/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -599,7 +600,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 1, 2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.641983, -90.0111 ), Vector2( -0.641983, -88.5128 ), Vector2( -0.641983, -90.8851 ), Vector2( -0.641983, -88.9498 ) ]
+"values": [ Vector2( -0.642, 0 ), Vector2( -0.642, 2 ), Vector2( -0.642, 0 ), Vector2( -0.642, 2 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("Skeleton2D/coluna:rotation_degrees")
@@ -614,7 +615,7 @@ tracks/13/keys = {
 "values": [ 7.3802, 7.3802, 7.3802 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("perna_d/canela_d/pe_d:position")
+tracks/14/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -626,7 +627,7 @@ tracks/14/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("perna_d/canela_d/pe_d:rotation_degrees")
+tracks/15/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -638,7 +639,7 @@ tracks/15/keys = {
 "values": [ 0.0, 0.0, -9.29747 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("perna_d/canela_d:position")
+tracks/16/path = NodePath("Skeleton2D/perna_d/canela_d:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -650,7 +651,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("perna_d/canela_d:rotation_degrees")
+tracks/17/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -662,7 +663,7 @@ tracks/17/keys = {
 "values": [ 40.7442, 77.0359, 1.48051, 22.9382 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("perna_d:position")
+tracks/18/path = NodePath("Skeleton2D/perna_d:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -671,10 +672,10 @@ tracks/18/keys = {
 "times": PoolRealArray( 0, 1, 2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ) ]
+"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ), Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("perna_d:rotation_degrees")
+tracks/19/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -859,7 +860,7 @@ resource_name = "atirando"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("perna_e/canela_e/pe_e:position")
+tracks/0/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -871,7 +872,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("perna_e/canela_e/pe_e:rotation_degrees")
+tracks/1/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -883,7 +884,7 @@ tracks/1/keys = {
 "values": [ 1.86094, 1.50714 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("perna_e/canela_e:position")
+tracks/2/path = NodePath("Skeleton2D/perna_e/canela_e:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -895,7 +896,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("perna_e/canela_e:rotation_degrees")
+tracks/3/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -907,7 +908,7 @@ tracks/3/keys = {
 "values": [ 12.2047, 7.39874 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("perna_e:position")
+tracks/4/path = NodePath("Skeleton2D/perna_e:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -916,10 +917,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ) ]
+"values": [ Vector2( -0.129, -5 ), Vector2( -0.129, -5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("perna_e:rotation_degrees")
+tracks/5/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1012,7 +1013,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.641983, -90.0111 ), Vector2( -0.995544, -91.0718 ) ]
+"values": [ Vector2( -0.642, 0 ), Vector2( -0.996, 0 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("Skeleton2D/coluna:rotation_degrees")
@@ -1027,7 +1028,7 @@ tracks/13/keys = {
 "values": [ 3.74576, 3.74576 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("perna_d/canela_d/pe_d:position")
+tracks/14/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1039,7 +1040,7 @@ tracks/14/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("perna_d/canela_d/pe_d:rotation_degrees")
+tracks/15/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1051,7 +1052,7 @@ tracks/15/keys = {
 "values": [ -14.6636, -15.0 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("perna_d/canela_d:position")
+tracks/16/path = NodePath("Skeleton2D/perna_d/canela_d:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1063,7 +1064,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("perna_d/canela_d:rotation_degrees")
+tracks/17/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1075,19 +1076,19 @@ tracks/17/keys = {
 "values": [ 13.8942, 6.50834 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("perna_d:position")
+tracks/18/path = NodePath("Skeleton2D/perna_d:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ) ]
+"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("perna_d:rotation_degrees")
+tracks/19/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -1296,7 +1297,7 @@ resource_name = "correndo"
 length = 6.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("perna_e/canela_e/pe_e:position")
+tracks/0/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1308,7 +1309,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("perna_e/canela_e/pe_e:rotation_degrees")
+tracks/1/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1320,7 +1321,7 @@ tracks/1/keys = {
 "values": [ -11.2732, 0.0, -15.0, -47.7039, 30.0, 32.8447, -15.0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("perna_e/canela_e:position")
+tracks/2/path = NodePath("Skeleton2D/perna_e/canela_e:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -1332,7 +1333,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("perna_e/canela_e:rotation_degrees")
+tracks/3/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -1344,19 +1345,19 @@ tracks/3/keys = {
 "values": [ 13.4411, 46.8253, 64.4802, 65.3346, 39.7796, 59.4575, 111.225, 111.763 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("perna_e:position")
+tracks/4/path = NodePath("Skeleton2D/perna_e:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 3, 4, 5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 3, 4, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ), Vector2( -0.503639, -81.2026 ) ]
+"values": [ Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ), Vector2( -0.504, 8 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("perna_e:rotation_degrees")
+tracks/5/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1446,10 +1447,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 1, 2, 3, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1.76572, -81.0213 ), Vector2( -1.01656, -74.6535 ), Vector2( 0.48175, -76.5264 ), Vector2( -1.01656, -80.2721 ), Vector2( 0.107178, -74.2789 ) ]
+"values": [ Vector2( -1.766, 6 ), Vector2( -1.391, 8 ), Vector2( -1.017, 8 ), Vector2( -0.267, 8 ), Vector2( 0.482, 8 ), Vector2( -1.017, 6 ), Vector2( 0.107, 8 ), Vector2( -0.83, 8 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("Skeleton2D/coluna:rotation_degrees")
@@ -1488,7 +1489,7 @@ tracks/15/keys = {
 "values": [ 48.4668, 37.0942, 20.6904, -42.0861 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("perna_d/canela_d/pe_d:position")
+tracks/16/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -1500,7 +1501,7 @@ tracks/16/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("perna_d/canela_d/pe_d:rotation_degrees")
+tracks/17/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -1512,7 +1513,7 @@ tracks/17/keys = {
 "values": [ 44.2287, -11.6555, -19.2614, -44.9999, -41.277, -35.4143 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("perna_d/canela_d:position")
+tracks/18/path = NodePath("Skeleton2D/perna_d/canela_d:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -1524,7 +1525,7 @@ tracks/18/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("perna_d/canela_d:rotation_degrees")
+tracks/19/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -1536,19 +1537,19 @@ tracks/19/keys = {
 "values": [ 72.2111, 99.0438, 116.852, 104.358, 9.5467, 61.9222, 64.1123, 63.3654, 47.1641, 25.2855, 3.40698 ]
 }
 tracks/20/type = "value"
-tracks/20/path = NodePath("perna_d:position")
+tracks/20/path = NodePath("Skeleton2D/perna_d:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 1, 2, 2.5, 3, 4, 4.5, 4.6, 4.8, 4.9, 5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 4, 4.5, 4.6, 4.8, 4.9, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ), Vector2( -2.49243, -80.5295 ) ]
+"values": [ Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ), Vector2( -2.492, 8 ) ]
 }
 tracks/21/type = "value"
-tracks/21/path = NodePath("perna_d:rotation_degrees")
+tracks/21/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/imported = false
@@ -1680,6 +1681,419 @@ tracks/31/keys = {
 "values": [ -47.4035, -11.5251, 19.5136, 47.7251 ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "mirando"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.22066, 40.0797 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.86094 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/perna_e/canela_e:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.512867, 42.1977 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 12.2047, 12.7929 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/perna_e:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.129, -5 ), Vector2( -0.129, -5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.8995, -16.3465 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/coluna/costas/pescoco/cabeca:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6.21735, -0.0860748 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 72.7996 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/coluna/costas/pescoco:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2.42619, -32.0637 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/coluna/costas/pescoco:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -91.4089, -94.0383 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D/coluna/costas:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1.19055, -31.748 ), Vector2( -1.19055, -31.748 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Skeleton2D/coluna/costas:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 13.0672, 13.0672 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Skeleton2D/coluna:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.642, 0 ), Vector2( -0.642, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Skeleton2D/coluna:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.74576, 5.48967 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.22066, 40.0797 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -14.6636 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Skeleton2D/perna_d/canela_d:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.512867, 42.1977 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 13.8942, 12.8484 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Skeleton2D/perna_d:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.3127, 2.86204 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Skeleton2D/coluna/costas/braco_e:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4.51552, -24.7363 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Skeleton2D/coluna/costas/braco_e:rotation_degrees")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -86.5522, -88.6012 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("Skeleton2D/coluna/costas/braco_e/antebaco_e:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.22759, 34.9627 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("Skeleton2D/coluna/costas/braco_e/antebaco_e:rotation_degrees")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -71.8325 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("corpo:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.25275, -147.808 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("corpo:rotation_degrees")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.832312, 32.608 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:rotation_degrees")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.7962 ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Skeleton2D/coluna/costas/braco_d/antebaco_d:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.22759, 34.9627 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("Skeleton2D/coluna/costas/braco_d/antebaco_d:rotation_degrees")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -41.9561 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("Skeleton2D/coluna/costas/braco_d:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4.98447, -23.7363 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Skeleton2D/coluna/costas/braco_d:rotation_degrees")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -97.6123, -99.6614 ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.629757, 32.7828 ) ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:rotation_degrees")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 48.3884 ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "parado"
 length = 5.0
@@ -1742,7 +2156,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.641983, -90.0111 ), Vector2( -0.641983, -90.0111 ) ]
+"values": [ Vector2( -0.642, 0 ), Vector2( -0.642, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Skeleton2D/coluna:rotation_degrees")
@@ -1757,7 +2171,7 @@ tracks/5/keys = {
 "values": [ 0.0, 0.0409003 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("perna_d:position")
+tracks/6/path = NodePath("Skeleton2D/perna_d:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1766,10 +2180,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ) ]
+"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("perna_d:rotation_degrees")
+tracks/7/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1781,7 +2195,7 @@ tracks/7/keys = {
 "values": [ 3.37851, 3.19528 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("perna_e:position")
+tracks/8/path = NodePath("Skeleton2D/perna_e:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1790,10 +2204,10 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ) ]
+"values": [ Vector2( -0.129, -5 ), Vector2( -0.129, -5 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("perna_e:rotation_degrees")
+tracks/9/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1961,7 +2375,7 @@ tracks/22/keys = {
 "values": [ 72.7996, 71.8608 ]
 }
 tracks/23/type = "value"
-tracks/23/path = NodePath("perna_e/canela_e/pe_e:position")
+tracks/23/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/imported = false
@@ -1973,7 +2387,7 @@ tracks/23/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/24/type = "value"
-tracks/24/path = NodePath("perna_e/canela_e/pe_e:rotation_degrees")
+tracks/24/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/imported = false
@@ -1985,7 +2399,7 @@ tracks/24/keys = {
 "values": [ -0.885982 ]
 }
 tracks/25/type = "value"
-tracks/25/path = NodePath("perna_e/canela_e:position")
+tracks/25/path = NodePath("Skeleton2D/perna_e/canela_e:position")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/imported = false
@@ -1997,7 +2411,7 @@ tracks/25/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/26/type = "value"
-tracks/26/path = NodePath("perna_e/canela_e:rotation_degrees")
+tracks/26/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/imported = false
@@ -2021,7 +2435,7 @@ tracks/27/keys = {
 "values": [ Vector2( 6.21735, -0.0860748 ) ]
 }
 tracks/28/type = "value"
-tracks/28/path = NodePath("perna_d/canela_d/pe_d:position")
+tracks/28/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/imported = false
@@ -2033,7 +2447,7 @@ tracks/28/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/29/type = "value"
-tracks/29/path = NodePath("perna_d/canela_d/pe_d:rotation_degrees")
+tracks/29/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/imported = false
@@ -2045,7 +2459,7 @@ tracks/29/keys = {
 "values": [ -7.35709 ]
 }
 tracks/30/type = "value"
-tracks/30/path = NodePath("perna_d/canela_d:position")
+tracks/30/path = NodePath("Skeleton2D/perna_d/canela_d:position")
 tracks/30/interp = 1
 tracks/30/loop_wrap = true
 tracks/30/imported = false
@@ -2057,7 +2471,7 @@ tracks/30/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/31/type = "value"
-tracks/31/path = NodePath("perna_d/canela_d:rotation_degrees")
+tracks/31/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
 tracks/31/interp = 1
 tracks/31/loop_wrap = true
 tracks/31/imported = false
@@ -2073,7 +2487,7 @@ tracks/31/keys = {
 resource_name = "recarregando"
 length = 5.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("perna_e/canela_e/pe_e:position")
+tracks/0/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -2085,7 +2499,7 @@ tracks/0/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("perna_e/canela_e/pe_e:rotation_degrees")
+tracks/1/path = NodePath("Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -2097,7 +2511,7 @@ tracks/1/keys = {
 "values": [ 1.86094, 1.86094 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("perna_e/canela_e:position")
+tracks/2/path = NodePath("Skeleton2D/perna_e/canela_e:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -2109,7 +2523,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("perna_e/canela_e:rotation_degrees")
+tracks/3/path = NodePath("Skeleton2D/perna_e/canela_e:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -2121,7 +2535,7 @@ tracks/3/keys = {
 "values": [ 12.2047, 10.9128, 7.69471, 12.2047 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("perna_e:position")
+tracks/4/path = NodePath("Skeleton2D/perna_e:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -2130,10 +2544,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 1, 1.9, 5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ), Vector2( -0.129066, -94.3128 ) ]
+"values": [ Vector2( -0.129, -5 ), Vector2( -0.129, -5 ), Vector2( -0.129, -5 ), Vector2( -0.129, -5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("perna_e:rotation_degrees")
+tracks/5/path = NodePath("Skeleton2D/perna_e:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -2226,7 +2640,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0, 1, 1.9, 5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -0.641983, -90.0111 ), Vector2( -0.641983, -90.0111 ), Vector2( -0.641983, -90.0111 ), Vector2( -0.641983, -90.0111 ) ]
+"values": [ Vector2( -0.642, 0 ), Vector2( -0.642, 0 ), Vector2( -0.642, 0 ), Vector2( -0.642, 0 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("Skeleton2D/coluna:rotation_degrees")
@@ -2241,7 +2655,7 @@ tracks/13/keys = {
 "values": [ 3.74576, 10.9888, 3.74576, 3.74576 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("perna_d/canela_d/pe_d:position")
+tracks/14/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -2253,7 +2667,7 @@ tracks/14/keys = {
 "values": [ Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ), Vector2( -1.22066, 40.0797 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("perna_d/canela_d/pe_d:rotation_degrees")
+tracks/15/path = NodePath("Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -2265,7 +2679,7 @@ tracks/15/keys = {
 "values": [ -14.6636, -14.6636 ]
 }
 tracks/16/type = "value"
-tracks/16/path = NodePath("perna_d/canela_d:position")
+tracks/16/path = NodePath("Skeleton2D/perna_d/canela_d:position")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/imported = false
@@ -2277,7 +2691,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ), Vector2( 0.512867, 42.1977 ) ]
 }
 tracks/17/type = "value"
-tracks/17/path = NodePath("perna_d/canela_d:rotation_degrees")
+tracks/17/path = NodePath("Skeleton2D/perna_d/canela_d:rotation_degrees")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/imported = false
@@ -2289,7 +2703,7 @@ tracks/17/keys = {
 "values": [ 13.8942, 13.3709, 13.8942 ]
 }
 tracks/18/type = "value"
-tracks/18/path = NodePath("perna_d:position")
+tracks/18/path = NodePath("Skeleton2D/perna_d:position")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/imported = false
@@ -2298,10 +2712,10 @@ tracks/18/keys = {
 "times": PoolRealArray( 0, 1, 5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ), Vector2( -2.11786, -93.6397 ) ]
+"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
 }
 tracks/19/type = "value"
-tracks/19/path = NodePath("perna_d:rotation_degrees")
+tracks/19/path = NodePath("Skeleton2D/perna_d:rotation_degrees")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/imported = false
@@ -2481,11 +2895,120 @@ tracks/33/keys = {
 "values": [ 29.693, 30.0, 51.5168 ]
 }
 
+[sub_resource type="AnimationNodeBlend2" id=25]
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "mirando"
+
+[sub_resource type="AnimationNodeBlend2" id=27]
+filter_enabled = true
+filters = [ "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:position", "Skeleton2D/coluna/costas:position", "Skeleton2D/coluna:position", "Skeleton2D/coluna:rotation_degrees", "Skeleton2D/perna_d/canela_d/pe_d:position", "Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees", "Skeleton2D/perna_d/canela_d:position", "Skeleton2D/perna_d/canela_d:rotation_degrees", "Skeleton2D/perna_d:position", "Skeleton2D/perna_d:rotation_degrees", "Skeleton2D/perna_e/canela_e/pe_e:position", "Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees", "Skeleton2D/perna_e/canela_e:position", "Skeleton2D/perna_e/canela_e:rotation_degrees", "Skeleton2D/perna_e:position", "Skeleton2D/perna_e:rotation_degrees", "corpo:position", "corpo:rotation_degrees" ]
+
+[sub_resource type="AnimationNodeOneShot" id=35]
+filter_enabled = true
+filters = [ "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d:position", "Skeleton2D/coluna/costas/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e:position", "Skeleton2D/coluna/costas/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:position", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:position", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:position", "Skeleton2D/coluna:rotation_degrees" ]
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "correndo"
+
+[sub_resource type="AnimationNodeAnimation" id=36]
+animation = "atirando"
+
+[sub_resource type="AnimationNodeTimeScale" id=29]
+
+[sub_resource type="AnimationNodeTimeScale" id=37]
+
+[sub_resource type="AnimationNodeTimeScale" id=30]
+
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "andando"
+
+[sub_resource type="AnimationNodeBlendTree" id=32]
+graph_offset = Vector2( -648.76, 140.184 )
+nodes/Blend2/node = SubResource( 25 )
+nodes/Blend2/position = Vector2( -260, 340 )
+nodes/Idle/node = SubResource( 26 )
+nodes/Idle/position = Vector2( -321.12, 158.4 )
+nodes/IsMovement/node = SubResource( 27 )
+nodes/IsMovement/position = Vector2( 60, 140 )
+nodes/OneShot/node = SubResource( 35 )
+nodes/OneShot/position = Vector2( 480, 140 )
+nodes/Run/node = SubResource( 28 )
+nodes/Run/position = Vector2( -680, 560 )
+nodes/Shooter/node = SubResource( 36 )
+nodes/Shooter/position = Vector2( 115.739, 370.161 )
+nodes/TimeScale/node = SubResource( 30 )
+nodes/TimeScale/position = Vector2( -480, 360 )
+"nodes/TimeScale 2/node" = SubResource( 29 )
+"nodes/TimeScale 2/position" = Vector2( -500, 560 )
+"nodes/TimeScale 3/node" = SubResource( 37 )
+"nodes/TimeScale 3/position" = Vector2( 300, 240 )
+nodes/Walk/node = SubResource( 31 )
+nodes/Walk/position = Vector2( -680, 360 )
+nodes/output/position = Vector2( 720, 140 )
+node_connections = [ "output", 0, "OneShot", "TimeScale 3", 0, "Shooter", "OneShot", 0, "IsMovement", "OneShot", 1, "TimeScale 3", "Blend2", 0, "TimeScale", "Blend2", 1, "TimeScale 2", "IsMovement", 0, "Idle", "IsMovement", 1, "Blend2", "TimeScale", 0, "Walk", "TimeScale 2", 0, "Run" ]
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "parado"
+
+[sub_resource type="AnimationNodeBlend2" id=13]
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "correndo"
+
+[sub_resource type="AnimationNodeTimeScale" id=17]
+
+[sub_resource type="AnimationNodeTimeScale" id=19]
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "andando"
+
+[sub_resource type="AnimationNodeBlend2" id=21]
+
+[sub_resource type="AnimationNodeBlendTree" id=22]
+graph_offset = Vector2( -989.331, 94.4432 )
+nodes/Idle/node = SubResource( 11 )
+nodes/Idle/position = Vector2( -760, 140 )
+nodes/IsMoviment/node = SubResource( 13 )
+nodes/IsMoviment/position = Vector2( -500, 140 )
+nodes/Run/node = SubResource( 15 )
+nodes/Run/position = Vector2( -1200, 460 )
+nodes/TimeRun/node = SubResource( 17 )
+nodes/TimeRun/position = Vector2( -980, 460 )
+nodes/TimeWalk/node = SubResource( 19 )
+nodes/TimeWalk/position = Vector2( -980, 300 )
+nodes/Walk/node = SubResource( 20 )
+nodes/Walk/position = Vector2( -1180, 300 )
+nodes/WalkOrRun/node = SubResource( 21 )
+nodes/WalkOrRun/position = Vector2( -760, 300 )
+nodes/output/position = Vector2( -180, 140 )
+node_connections = [ "output", 0, "IsMoviment", "IsMoviment", 0, "Idle", "IsMoviment", 1, "WalkOrRun", "TimeRun", 0, "Run", "TimeWalk", 0, "Walk", "WalkOrRun", 0, "TimeWalk", "WalkOrRun", 1, "TimeRun" ]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id=23]
+states/Aim/node = SubResource( 32 )
+states/Aim/position = Vector2( 655, 84 )
+states/Move/node = SubResource( 22 )
+states/Move/position = Vector2( 403, 84 )
+transitions = [ "Move", "Aim", SubResource( 33 ), "Aim", "Move", SubResource( 34 ) ]
+start_node = "Move"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+
 [node name="player" type="KinematicBody2D"]
 modulate = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
 
-[node name="perna_d" type="Sprite" parent="."]
-position = Vector2( -2.11786, -93.6397 )
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2( 0, -90 )
+
+[node name="perna_d" type="Sprite" parent="Skeleton2D"]
+position = Vector2( -2.118, -5 )
 rotation = 0.0975842
 texture = ExtResource( 1 )
 offset = Vector2( 0.187286, 21.1636 )
@@ -2496,7 +3019,7 @@ __meta__ = {
 "_edit_ik_": true
 }
 
-[node name="canela_d" type="Sprite" parent="perna_d"]
+[node name="canela_d" type="Sprite" parent="Skeleton2D/perna_d"]
 position = Vector2( 0.512867, 42.1977 )
 rotation = 0.13868
 texture = ExtResource( 1 )
@@ -2507,7 +3030,7 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="pe_d" type="Sprite" parent="perna_d/canela_d"]
+[node name="pe_d" type="Sprite" parent="Skeleton2D/perna_d/canela_d"]
 position = Vector2( -1.22066, 40.0797 )
 rotation = -0.128405
 texture = ExtResource( 1 )
@@ -2518,8 +3041,8 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="perna_e" type="Sprite" parent="."]
-position = Vector2( -0.129066, -94.3128 )
+[node name="perna_e" type="Sprite" parent="Skeleton2D"]
+position = Vector2( -2.118, -5 )
 rotation = -0.0735209
 texture = ExtResource( 1 )
 offset = Vector2( 0.187286, 21.1636 )
@@ -2530,7 +3053,7 @@ __meta__ = {
 "_edit_ik_": true
 }
 
-[node name="canela_e" type="Sprite" parent="perna_e"]
+[node name="canela_e" type="Sprite" parent="Skeleton2D/perna_e"]
 position = Vector2( 0.512867, 42.1977 )
 rotation = 0.0454032
 texture = ExtResource( 1 )
@@ -2541,7 +3064,7 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="pe_e" type="Sprite" parent="perna_e/canela_e"]
+[node name="pe_e" type="Sprite" parent="Skeleton2D/perna_e/canela_e"]
 position = Vector2( -1.22066, 40.0797 )
 rotation = -0.0154633
 texture = ExtResource( 1 )
@@ -2552,22 +3075,9 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="corpo" type="Polygon2D" parent="."]
-position = Vector2( -1.25275, -147.808 )
-offset = Vector2( -134.12, -123.323 )
-texture = ExtResource( 1 )
-skeleton = NodePath("../Skeleton2D")
-polygon = PoolVector2Array( 122.256, 184.678, 147.95, 178.428, 148.564, 151.613, 148.564, 149.707, 148.659, 147.8, 148.954, 127.116, 140.697, 117.317, 141.238, 114.462, 141.623, 113.458, 141.855, 112.533, 142.549, 109.755, 132.902, 104.839, 132.518, 108.675, 132.364, 109.986, 132.287, 110.912, 131.978, 113.536, 121.716, 121.869, 121.393, 146.091, 121.307, 147.549, 121.393, 149.093, 137.152, 110.464, 136.777, 111.526, 136.215, 113.714, 135.965, 115.839, 135.34, 146.651, 135.215, 147.901, 135.277, 149.526 )
-uv = PoolVector2Array( 122.256, 184.678, 147.95, 178.428, 148.564, 151.613, 148.564, 149.707, 148.659, 147.8, 148.954, 127.116, 140.697, 117.317, 141.238, 114.462, 141.623, 113.458, 141.855, 112.533, 142.549, 109.755, 132.902, 104.839, 132.518, 108.675, 132.364, 109.986, 132.287, 110.912, 131.978, 113.536, 121.716, 121.869, 121.393, 146.091, 121.307, 147.549, 121.393, 149.093, 137.152, 110.464, 136.777, 111.526, 136.215, 113.714, 135.965, 115.839, 135.34, 146.651, 135.215, 147.901, 135.277, 149.526 )
-polygons = [ PoolIntArray( 19, 26, 18 ), PoolIntArray( 25, 26, 18 ), PoolIntArray( 25, 3, 26 ), PoolIntArray( 26, 2, 3 ), PoolIntArray( 25, 24, 3 ), PoolIntArray( 3, 4, 24 ), PoolIntArray( 25, 24, 18 ), PoolIntArray( 18, 17, 24 ), PoolIntArray( 24, 16, 17 ), PoolIntArray( 24, 5, 4 ), PoolIntArray( 5, 16, 24 ), PoolIntArray( 5, 6, 23 ), PoolIntArray( 23, 15, 16 ), PoolIntArray( 23, 16, 5 ), PoolIntArray( 22, 6, 23 ), PoolIntArray( 22, 15, 23 ), PoolIntArray( 22, 14, 15 ), PoolIntArray( 22, 7, 6 ), PoolIntArray( 21, 14, 22 ), PoolIntArray( 21, 20, 14 ), PoolIntArray( 13, 14, 20 ), PoolIntArray( 12, 20, 13 ), PoolIntArray( 20, 11, 12 ), PoolIntArray( 20, 10, 11 ), PoolIntArray( 20, 10, 9 ), PoolIntArray( 22, 8, 21 ), PoolIntArray( 8, 7, 22 ), PoolIntArray( 8, 20, 21 ), PoolIntArray( 9, 20, 8 ), PoolIntArray( 0, 19, 26 ), PoolIntArray( 0, 1, 26 ), PoolIntArray( 26, 2, 1 ) ]
-bones = [ "coluna", PoolRealArray( 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1 ), "coluna/costas", PoolRealArray( 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0 ), "coluna/costas/pescoco", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0 ) ]
-internal_vertex_count = 7
-
-[node name="Skeleton2D" type="Skeleton2D" parent="."]
-
 [node name="coluna" type="Bone2D" parent="Skeleton2D"]
-position = Vector2( -0.641983, -90.0111 )
-rest = Transform2D( 1, 0, 0, 1, -0.641983, -90.0111 )
+position = Vector2( -0.642, 0 )
+rest = Transform2D( 1, 0, 0, 1, -0.642, 0 )
 __meta__ = {
 "_edit_bone_": true,
 "_edit_ik_": true
@@ -2583,7 +3093,7 @@ __meta__ = {
 [node name="pescoco" type="Bone2D" parent="Skeleton2D/coluna/costas"]
 position = Vector2( 2.42619, -32.0637 )
 rotation = -1.309
-rest = Transform2D( 0.258819, -0.965926, 0.965926, 0.258819, 2.42619, -32.0637 )
+rest = Transform2D( 0.258816, -0.965927, 0.965927, 0.258816, 2.42619, -32.0637 )
 default_length = 8.0
 __meta__ = {
 "_edit_bone_": true
@@ -2638,6 +3148,7 @@ __meta__ = {
 [node name="braco_d" type="Sprite" parent="Skeleton2D/coluna/costas"]
 position = Vector2( -4.98447, -23.7363 )
 rotation = 0.194737
+z_index = 1
 texture = ExtResource( 1 )
 offset = Vector2( -1.52015, 16.8313 )
 region_enabled = true
@@ -2661,6 +3172,7 @@ __meta__ = {
 [node name="mao_d" type="Sprite" parent="Skeleton2D/coluna/costas/braco_d/antebaco_d"]
 position = Vector2( -0.629757, 32.7828 )
 rotation = -0.196889
+scale = Vector2( 0.961777, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( -0.72465, 6.56112 )
 region_enabled = true
@@ -2668,6 +3180,17 @@ region_rect = Rect2( 77, 139, 11, 17 )
 __meta__ = {
 "_edit_bone_": true
 }
+
+[node name="corpo" type="Polygon2D" parent="."]
+position = Vector2( -1.25275, -147.808 )
+offset = Vector2( -134.12, -121.93 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../Skeleton2D")
+polygon = PoolVector2Array( 122.256, 184.678, 147.95, 178.428, 148.564, 151.613, 148.564, 149.707, 148.659, 147.8, 148.954, 127.116, 140.697, 117.317, 141.238, 114.462, 141.623, 113.458, 141.855, 112.533, 142.549, 109.755, 132.902, 104.839, 132.518, 108.675, 132.364, 109.986, 132.287, 110.912, 131.978, 113.536, 121.716, 121.869, 121.393, 146.091, 121.307, 147.549, 121.393, 149.093, 137.152, 110.464, 136.777, 111.526, 136.215, 113.714, 135.965, 115.839, 135.34, 146.651, 135.215, 147.901, 135.277, 149.526 )
+uv = PoolVector2Array( 122.256, 184.678, 147.95, 178.428, 148.564, 151.613, 148.564, 149.707, 148.659, 147.8, 148.954, 127.116, 140.697, 117.317, 141.238, 114.462, 141.623, 113.458, 141.855, 112.533, 142.549, 109.755, 132.902, 104.839, 132.518, 108.675, 132.364, 109.986, 132.287, 110.912, 131.978, 113.536, 121.716, 121.869, 121.393, 146.091, 121.307, 147.549, 121.393, 149.093, 137.152, 110.464, 136.777, 111.526, 136.215, 113.714, 135.965, 115.839, 135.34, 146.651, 135.215, 147.901, 135.277, 149.526 )
+polygons = [ PoolIntArray( 19, 26, 18 ), PoolIntArray( 25, 26, 18 ), PoolIntArray( 25, 3, 26 ), PoolIntArray( 26, 2, 3 ), PoolIntArray( 25, 24, 3 ), PoolIntArray( 3, 4, 24 ), PoolIntArray( 25, 24, 18 ), PoolIntArray( 18, 17, 24 ), PoolIntArray( 24, 16, 17 ), PoolIntArray( 24, 5, 4 ), PoolIntArray( 5, 16, 24 ), PoolIntArray( 5, 6, 23 ), PoolIntArray( 23, 15, 16 ), PoolIntArray( 23, 16, 5 ), PoolIntArray( 22, 6, 23 ), PoolIntArray( 22, 15, 23 ), PoolIntArray( 22, 14, 15 ), PoolIntArray( 22, 7, 6 ), PoolIntArray( 21, 14, 22 ), PoolIntArray( 21, 20, 14 ), PoolIntArray( 13, 14, 20 ), PoolIntArray( 12, 20, 13 ), PoolIntArray( 20, 11, 12 ), PoolIntArray( 20, 10, 11 ), PoolIntArray( 20, 10, 9 ), PoolIntArray( 22, 8, 21 ), PoolIntArray( 8, 7, 22 ), PoolIntArray( 8, 20, 21 ), PoolIntArray( 9, 20, 8 ), PoolIntArray( 0, 19, 26 ), PoolIntArray( 0, 1, 26 ), PoolIntArray( 26, 2, 1 ) ]
+bones = [ "coluna", PoolRealArray( 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1 ), "coluna/costas", PoolRealArray( 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0 ), "coluna/costas/pescoco", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0 ) ]
+internal_vertex_count = 7
 
 [node name="colisao" type="CollisionShape2D" parent="."]
 visible = false
@@ -2680,5 +3203,22 @@ anims/RESET = SubResource( 2 )
 anims/andando = SubResource( 3 )
 anims/atirando = SubResource( 6 )
 anims/correndo = SubResource( 4 )
+anims/mirando = SubResource( 9 )
 anims/parado = SubResource( 5 )
 anims/recarregando = SubResource( 7 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 23 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 24 )
+parameters/Aim/Blend2/blend_amount = 0.0
+parameters/Aim/IsMovement/blend_amount = 0.0
+parameters/Aim/OneShot/active = false
+parameters/Aim/TimeScale/scale = 3.0
+"parameters/Aim/TimeScale 2/scale" = 7.0
+"parameters/Aim/TimeScale 3/scale" = 4.0
+parameters/Move/IsMoviment/blend_amount = 0.0
+parameters/Move/TimeRun/scale = 7.0
+parameters/Move/TimeWalk/scale = 3.0
+parameters/Move/WalkOrRun/blend_amount = 0.0
