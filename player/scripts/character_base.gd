@@ -1,0 +1,98 @@
+class_name CharacterBase extends KinematicBody2D
+
+enum StateMachine {
+	IDLE,
+	IDLE_AIM
+	WALK,
+	WALK_AIM
+	JUMP,
+	FALL,
+	AIM,
+	SHOOTER
+}
+
+const UP := Vector2(0, -1)
+export (int) var JUMP_FORCE = -350
+export (int) var JUMP_RELEASE_FORCE = -150
+export (int) var MAXSPEED = 150
+export (int) var ACCELERATION = 500
+export (int) var ACCELERATION_BLEND_ANIMATION = 10
+export (int) var FRICTION = 2000
+export (int) var GRAVITY = 1200
+export (int) var ADDICIONAL_FALL_GRAVITY = 200
+
+var state = StateMachine.IDLE
+var motion := Vector2.ZERO
+var enter_state := true
+
+onready var nodePlayer : Node2D = get_node("NodePlayer")
+onready var nodeArms : Node2D = get_node("NodePlayer/Skeleton2D/Column/Back/NodeArms")
+
+onready var animationPlayer : AnimationPlayer = get_node("AnimationPlayer")
+onready var animationTree : AnimationTree = get_node("AnimationTree")
+onready var animationState = animationTree.get("parameters/playback")
+
+onready var back : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back")
+onready var neck : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back/Neck")
+#onready var timer_attack : Timer = get_node("TimerAttack")
+
+func _ready() -> void:
+	print((_get_input_axis()))
+	animationTree.active = true
+
+func _physics_process(delta: float) -> void:
+	_move_and_slide()
+
+func _apply_gravity(delta: float) -> void:
+	motion.y += GRAVITY * delta
+	
+func _move_and_slide() -> void:
+	motion = move_and_slide(motion, UP)
+
+func _get_input_axis() -> int:
+	var input = Vector2.ZERO
+	
+	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	return input.x
+	
+func _set_animation_tree_parameters(parameters: String, duration: float, delta: float):
+	animationTree.set(parameters, lerp(animationTree.get(parameters), duration, ACCELERATION_BLEND_ANIMATION * delta))
+	
+func _travel_animation_state_parameters(state: String):
+	animationState.travel(state)
+	
+func _apply_friction(delta: float) -> void:
+	motion.x = move_toward(motion.x, 0, FRICTION * delta)
+	
+func _apply_acceleration(amount: int, delta: float) -> void:
+	motion.x = move_toward(motion.x, MAXSPEED * amount, ACCELERATION * delta)
+	
+func _aim_mouse(pos: Vector2): 
+	_set_flip_aim(pos.x < self.global_position.x)
+	nodeArms.rotation += nodeArms.get_local_mouse_position().angle() * 0.20
+	neck.rotation += neck.get_local_mouse_position().angle() - 92 * 0.15
+	back.rotation += back.get_local_mouse_position().angle() * 0.10
+	
+func _set_flip_aim(value: bool):
+	match value:
+		true:
+			nodePlayer.scale.x = -1
+		false:
+			nodePlayer.scale.x = 1
+
+func _set_flip() -> void:
+	if _get_input_axis() != 0:
+		nodePlayer.scale.x = _get_input_axis()
+	
+func _animate_legs(parameters: String, delta: float):
+	var is_forward: bool = (
+		(nodePlayer.scale.x == 1 and motion.x > 0) or (nodePlayer.scale.x == -1 and motion.x < 0)
+	)
+	match is_forward:
+		true: _set_animation_tree_parameters(parameters, 1, delta)
+		false: _set_animation_tree_parameters(parameters, -1, delta)
+
+func _enter_state(new_state) -> void:
+	if state != new_state:
+		state = new_state
+		enter_state = true
