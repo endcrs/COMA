@@ -4,21 +4,20 @@ enum StateMachine {
 	IDLE,
 	IDLE_AIM
 	WALK,
-	WALK_AIM
+	WALK_AIM,
 	JUMP,
 	FALL,
-	AIM,
 	SHOOTER
 }
 
 const UP := Vector2(0, -1)
-export (int) var JUMP_FORCE = -350
-export (int) var JUMP_RELEASE_FORCE = -150
-export (int) var MAXSPEED = 150
-export (int) var ACCELERATION = 500
+export (int) var JUMP_FORCE = -700
+export (int) var JUMP_RELEASE_FORCE = -400
+export (int) var MAXSPEED = 300
+export (int) var ACCELERATION = 1000
 export (int) var ACCELERATION_BLEND_ANIMATION = 10
-export (int) var FRICTION = 2000
-export (int) var GRAVITY = 1200
+export (int) var FRICTION = 5000
+export (int) var GRAVITY = 2000
 export (int) var ADDICIONAL_FALL_GRAVITY = 200
 
 var state = StateMachine.IDLE
@@ -66,6 +65,11 @@ func _apply_friction(delta: float) -> void:
 	
 func _apply_acceleration(amount: int, delta: float) -> void:
 	motion.x = move_toward(motion.x, MAXSPEED * amount, ACCELERATION * delta)
+	
+	if state == StateMachine.IDLE_AIM or state == StateMachine.WALK_AIM:
+		MAXSPEED = 100
+	else:
+		MAXSPEED = 300
 	
 func _aim_mouse(pos: Vector2): 
 	_set_flip_aim(pos.x < self.global_position.x)
