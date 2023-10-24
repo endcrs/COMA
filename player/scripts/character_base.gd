@@ -33,13 +33,19 @@ onready var animationState = animationTree.get("parameters/playback")
 
 onready var back : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back")
 onready var neck : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back/Neck")
-#onready var timer_attack : Timer = get_node("TimerAttack")
+
+onready var endgun : Position2D = get_node("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/HandPosition/Sprite/Shoot")
+onready var attackCoolDown : Timer = get_node("AttackCoolDown")
+
+var bullet = preload("res://bullet/Bullet.tscn")
+onready var look : Node2D = get_node("Look")
 
 func _ready() -> void:
 	print((_get_input_axis()))
 	animationTree.active = true
 
 func _physics_process(delta: float) -> void:
+	look.look_at(get_global_mouse_position())
 	_move_and_slide()
 
 func _apply_gravity(delta: float) -> void:
@@ -76,7 +82,17 @@ func _aim_mouse(pos: Vector2):
 	nodeArms.rotation += nodeArms.get_local_mouse_position().angle() * 0.20
 	neck.rotation += neck.get_local_mouse_position().angle() - 92 * 0.15
 	back.rotation += back.get_local_mouse_position().angle() * 0.10
-	
+
+func _shoot():
+	if attackCoolDown.is_stopped():
+		animationTree.set("parameters/Aim/OneShot/active", true)
+		
+		var bullet_instance = bullet.instance()
+		get_parent().add_child(bullet_instance)
+		bullet_instance.position = endgun.global_position
+		bullet_instance.velocity = get_local_mouse_position() - bullet_instance.position
+		
+
 func _set_flip_aim(value: bool):
 	match value:
 		true:

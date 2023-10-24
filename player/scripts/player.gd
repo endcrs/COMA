@@ -8,7 +8,6 @@ func _process(delta: float) -> void:
 		StateMachine.WALK_AIM: _state_walk_aim(delta)
 		StateMachine.JUMP: _state_jump(delta)
 		StateMachine.FALL: _state_fall(delta)
-		StateMachine.SHOOTER: _state_shooter(delta)
 
 func _state_idle(delta: float) -> void:
 	_travel_animation_state_parameters("Move")
@@ -38,7 +37,7 @@ func _state_idle_aim(delta):
 	if _get_input_axis():
 		_enter_state(StateMachine.WALK_AIM)
 	elif Input.is_action_pressed("ui_left_mouse"):
-		animationTree.set("parameters/Aim/OneShot/active", true)
+		_shoot()
 	elif Input.is_action_just_released("ui_right_mouse"):
 		_enter_state(StateMachine.IDLE)
 	elif Input.is_action_just_pressed("ui_jump"):
@@ -73,7 +72,7 @@ func _state_walk_aim(delta):
 	if !_get_input_axis():
 		_enter_state(StateMachine.IDLE_AIM)
 	elif Input.is_action_pressed("ui_left_mouse"):
-		animationTree.set("parameters/Aim/OneShot/active", true)
+		_shoot()
 	elif Input.is_action_just_released("ui_right_mouse"):
 		_enter_state(StateMachine.IDLE)
 	elif Input.is_action_just_pressed("ui_jump"):
@@ -108,6 +107,3 @@ func _state_fall(delta: float) -> void:
 	
 	if is_on_floor():
 		_enter_state(StateMachine.IDLE)
-	
-func _state_shooter(delta):
-	pass
