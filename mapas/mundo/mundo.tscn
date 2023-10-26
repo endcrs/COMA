@@ -10,6 +10,8 @@ extents = Vector2( 79, 37 )
 
 [node name="mundo" type="Node"]
 
+[node name="player" parent="." instance=ExtResource( 1 )]
+
 [node name="chão" type="StaticBody2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="chão"]
@@ -19,11 +21,6 @@ polygon = PoolVector2Array( 0, 526, 1024, 526, 1024, 600, 0, 600 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chão"]
 position = Vector2( 511.75, 563 )
 shape = SubResource( 1 )
-
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 490, 526 )
-
-[node name="player" parent="Position2D" instance=ExtResource( 1 )]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 737, 526 )

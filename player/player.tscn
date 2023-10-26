@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player/sprites/player_color.svg" type="Texture" id=1]
 [ext_resource path="res://player/scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://player/scripts/limit_back.gd" type="Script" id=3]
 [ext_resource path="res://player/sprites/guns.svg" type="Texture" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9565
@@ -57,7 +58,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "output", 0, "OneShot", "TimeScale", 0, "Walk", "TimeScale 3", 0, "Shooter", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3" ]
+node_connections = [ "output", 0, "OneShot", "TimeScale", 0, "Walk", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "TimeScale 3", 0, "Shooter" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -98,7 +99,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "output", 0, "IsOnFloor", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment" ]
+node_connections = [ "output", 0, "IsOnFloor", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "TimeWalk", 0, "Walk" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1
@@ -4642,7 +4643,7 @@ position = Vector2( 0, -90 )
 
 [node name="LegR" type="Sprite" parent="NodePlayer/Skeleton2D"]
 position = Vector2( -2.118, -5 )
-rotation = 0.144502
+rotation = 0.0975842
 texture = ExtResource( 1 )
 offset = Vector2( 0.187286, 21.1636 )
 region_enabled = true
@@ -4654,7 +4655,7 @@ __meta__ = {
 
 [node name="ShinR" type="Sprite" parent="NodePlayer/Skeleton2D/LegR"]
 position = Vector2( 0.512867, 42.1977 )
-rotation = -0.0122526
+rotation = 0.13868
 texture = ExtResource( 1 )
 offset = Vector2( 0, 18.5415 )
 region_enabled = true
@@ -4665,7 +4666,7 @@ __meta__ = {
 
 [node name="FootR" type="Sprite" parent="NodePlayer/Skeleton2D/LegR/ShinR"]
 position = Vector2( -1.22066, 40.0797 )
-rotation = -0.0427602
+rotation = -0.128405
 texture = ExtResource( 1 )
 offset = Vector2( 7.77576, 5.24406 )
 region_enabled = true
@@ -4675,8 +4676,8 @@ __meta__ = {
 }
 
 [node name="LegL" type="Sprite" parent="NodePlayer/Skeleton2D"]
-position = Vector2( -0.129, -5 )
-rotation = -0.204794
+position = Vector2( -2.118, -5 )
+rotation = -0.0735209
 texture = ExtResource( 1 )
 offset = Vector2( 0.187286, 21.1636 )
 region_enabled = true
@@ -4688,7 +4689,7 @@ __meta__ = {
 
 [node name="ShinL" type="Sprite" parent="NodePlayer/Skeleton2D/LegL"]
 position = Vector2( 0.512867, 42.1977 )
-rotation = 0.261338
+rotation = 0.0454032
 texture = ExtResource( 1 )
 offset = Vector2( 0, 18.5415 )
 region_enabled = true
@@ -4699,7 +4700,7 @@ __meta__ = {
 
 [node name="FootL" type="Sprite" parent="NodePlayer/Skeleton2D/LegL/ShinL"]
 position = Vector2( -1.22066, 40.0797 )
-rotation = -0.0384078
+rotation = -0.0154633
 texture = ExtResource( 1 )
 offset = Vector2( 7.77576, 5.24406 )
 region_enabled = true
@@ -4709,8 +4710,7 @@ __meta__ = {
 }
 
 [node name="Column" type="Bone2D" parent="NodePlayer/Skeleton2D"]
-position = Vector2( -3, 0 )
-rotation = 0.0779054
+position = Vector2( -0.642, 0 )
 rest = Transform2D( 1, 0, 0, 1, -0.642, 0 )
 __meta__ = {
 "_edit_bone_": true,
@@ -4719,7 +4719,6 @@ __meta__ = {
 
 [node name="Back" type="Bone2D" parent="NodePlayer/Skeleton2D/Column"]
 position = Vector2( -1.19055, -31.748 )
-rotation = 0.00437603
 rest = Transform2D( 1, 0, 0, 1, -1.19055, -31.748 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -4753,7 +4752,7 @@ position = Vector2( 2.72312, -21.4275 )
 
 [node name="ArmL" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms"]
 position = Vector2( 4.516, 0 )
-rotation = -1.19177
+rotation = 0.0419059
 z_index = -1
 texture = ExtResource( 1 )
 offset = Vector2( -1.52015, 16.8313 )
@@ -4766,7 +4765,7 @@ __meta__ = {
 
 [node name="ForeArmL" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL"]
 position = Vector2( -4.22759, 34.9627 )
-rotation = -1.06865
+rotation = -0.414495
 texture = ExtResource( 1 )
 offset = Vector2( -0.409703, 15.8431 )
 region_enabled = true
@@ -4777,7 +4776,7 @@ __meta__ = {
 
 [node name="HandL" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL"]
 position = Vector2( -0.629757, 32.7828 )
-rotation = 0.544544
+rotation = -0.284197
 texture = ExtResource( 1 )
 offset = Vector2( -0.72465, 6.56112 )
 region_enabled = true
@@ -4788,7 +4787,7 @@ __meta__ = {
 
 [node name="HandPosition" type="Position2D" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL"]
 position = Vector2( 0.284897, 8.26042 )
-rotation = 1.65806
+rotation = 1.62293
 
 [node name="Sprite" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/HandPosition"]
 position = Vector2( 7.65153, -2.31523 )
@@ -4801,7 +4800,7 @@ position = Vector2( 10.8461, -6.42267 )
 
 [node name="ArmR" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms"]
 position = Vector2( -4.984, 0 )
-rotation = -1.5708
+rotation = 0.194737
 z_index = 1
 texture = ExtResource( 1 )
 offset = Vector2( -1.52015, 16.8313 )
@@ -4814,7 +4813,7 @@ __meta__ = {
 
 [node name="ForeArmR" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR"]
 position = Vector2( -4.22759, 34.9627 )
-rotation = -0.312385
+rotation = -0.361651
 texture = ExtResource( 1 )
 offset = Vector2( -0.409703, 15.8431 )
 region_enabled = true
@@ -4824,8 +4823,8 @@ __meta__ = {
 }
 
 [node name="HandR" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR"]
-position = Vector2( -0.832312, 32.608 )
-rotation = 0.414786
+position = Vector2( -0.629757, 32.7828 )
+rotation = -0.196889
 texture = ExtResource( 1 )
 offset = Vector2( -0.72465, 6.56112 )
 region_enabled = true
@@ -4857,7 +4856,6 @@ position = Vector2( 0, -141.51 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 23 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 24 )
 parameters/Aim/IsMovementAim/blend_amount = 0.0
 parameters/Aim/OneShot/active = false
@@ -4882,13 +4880,12 @@ anims/parado = SubResource( 5 )
 anims/pulando = SubResource( 44 )
 anims/recarregando = SubResource( 7 )
 
-[node name="AttackCoolDown" type="Timer" parent="."]
-process_mode = 0
-wait_time = 0.5
-one_shot = true
-
 [node name="Look" type="Node2D" parent="."]
 position = Vector2( 0, -141.51 )
 
 [node name="Position2D" type="Position2D" parent="Look"]
 position = Vector2( 303.248, 0 )
+
+[node name="Sprite" type="Sprite" parent="Look/Position2D"]
+scale = Vector2( 0.591211, 0.591211 )
+texture = ExtResource( 5 )
