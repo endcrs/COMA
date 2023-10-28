@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objetos/moveis/pngwing.com.png" type="Texture" id=2]
 [ext_resource path="res://mapas/mundo/Oculux Dead Front 3_5IN Round Open Reflector Trim - Flood _ 2700K.jpg" type="Texture" id=3]
+[ext_resource path="res://objetos/moveis/moveis.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2432, 40 )
@@ -12,7 +13,7 @@ extents = Vector2( 2432, 40 )
 [node name="mundo" type="Node"]
 
 [node name="Polygon2D3" type="Polygon2D" parent="."]
-position = Vector2( -941.176, -593.864 )
+position = Vector2( -942, -594 )
 scale = Vector2( 2.56863, 2.14205 )
 color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
@@ -54,6 +55,16 @@ polygon = PoolVector2Array( 552, 312, 552, -264, 2728, -264, 2728, -232, 1464, -
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
+[node name="Light2D3" type="Light2D" parent="."]
+position = Vector2( 1764, 178 )
+scale = Vector2( 1.11781, 0.4823 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 3.0
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 1008, 175.694 )
 scale = Vector2( 1.11781, 0.480874 )
@@ -61,6 +72,9 @@ texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
 energy = 3.0
 shadow_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Light2D2" type="Light2D" parent="."]
 position = Vector2( 1008, -223.956 )
@@ -68,26 +82,89 @@ scale = Vector2( 1.11781, 0.502732 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
 energy = 3.0
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="lareira" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1016, 456 )
-scale = Vector2( 0.191915, 0.193939 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( -9.31004, 184.862, 906.032, 660.521 )
+[node name="Light2D4" type="Light2D" parent="."]
+position = Vector2( 2375, 173.168 )
+scale = Vector2( 1.11781, 0.492783 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 3.0
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="cadeira" type="Sprite" parent="."]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 792, 456.146 )
-scale = Vector2( 0.191915, 0.195272 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 1471.02, 1561.39, 1170.33, 655.466 )
+[node name="sprites" type="Node2D" parent="."]
 
-[node name="relogio" type="Sprite" parent="."]
+[node name="relogio" type="Sprite" parent="sprites"]
 position = Vector2( 1544, 344 )
 scale = Vector2( 0.191915, 0.193939 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1225.86, 224.811, 362.339, 824.713 )
+
+[node name="janela" type="Sprite" parent="sprites"]
+modulate = Color( 0.375, 0.375, 0.375, 1 )
+position = Vector2( 1011, 327 )
+scale = Vector2( 0.358348, 0.362128 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 1418, 637, 461, 372 )
+
+[node name="estante" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1706, 388 )
+scale = Vector2( 0.449941, 0.454686 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 60, 49, 461, 569 )
+
+[node name="sofá" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 803, 463 )
+scale = Vector2( 0.46122, 0.466084 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 1206, 65, 563, 268 )
+
+[node name="sofá2" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1158, 472 )
+scale = Vector2( 0.427161, 0.431666 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 741, 529, 290, 294 )
+
+[node name="bancada" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1011, 466 )
+scale = Vector2( 0.312537, 0.315833 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 765, 85, 366, 380 )
+
+[node name="luminaria" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1243, 425 )
+scale = Vector2( 0.449941, 0.454686 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 570, 607, 107, 432 )
+
+[node name="fro" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1576, 482 )
+scale = Vector2( 0.449941, 0.454686 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 998, 866, 97, 173 )
+
+[node name="fro2" type="Sprite" parent="sprites"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 969, 368 )
+scale = Vector2( 0.449941, 0.454686 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 570, 66, 146, 198 )
