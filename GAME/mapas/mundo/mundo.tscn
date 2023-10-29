@@ -10,9 +10,6 @@ extents = Vector2( 2432, 40 )
 
 [sub_resource type="Environment" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 79, 37 )
-
 [node name="mundo" type="Node"]
 
 [node name="Polygon2D3" type="Polygon2D" parent="."]

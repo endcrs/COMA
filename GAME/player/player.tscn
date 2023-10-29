@@ -1,10 +1,9 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://player/sprites/player_color.svg" type="Texture" id=1]
 [ext_resource path="res://player/scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://player/scripts/limit_back.gd" type="Script" id=3]
 [ext_resource path="res://player/sprites/guns.svg" type="Texture" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9565
@@ -58,7 +57,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "output", 0, "OneShot", "TimeScale", 0, "Walk", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "TimeScale 3", 0, "Shooter" ]
+node_connections = [ "TimeScale 3", 0, "Shooter", "TimeScale", 0, "Walk", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "output", 0, "OneShot" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -99,7 +98,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "output", 0, "IsOnFloor", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "TimeWalk", 0, "Walk" ]
+node_connections = [ "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "output", 0, "IsOnFloor" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1
@@ -4634,6 +4633,7 @@ tracks/33/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="NodePlayer" type="Node2D" parent="."]
@@ -4885,7 +4885,3 @@ position = Vector2( 0, -141.51 )
 
 [node name="Position2D" type="Position2D" parent="Look"]
 position = Vector2( 303.248, 0 )
-
-[node name="Sprite" type="Sprite" parent="Look/Position2D"]
-scale = Vector2( 0.591211, 0.591211 )
-texture = ExtResource( 5 )
