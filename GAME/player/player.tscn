@@ -57,7 +57,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "TimeScale 3", 0, "Shooter", "TimeScale", 0, "Walk", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "output", 0, "OneShot" ]
+node_connections = [ "TimeScale", 0, "Walk", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "TimeScale 3", 0, "Shooter", "output", 0, "OneShot" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -98,7 +98,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "output", 0, "IsOnFloor" ]
+node_connections = [ "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "output", 0, "IsOnFloor" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1
@@ -4632,7 +4632,7 @@ tracks/33/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 z_index = 2
 script = ExtResource( 2 )
 
