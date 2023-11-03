@@ -4,6 +4,7 @@
 [ext_resource path="res://objetos/moveis/pngwing.com.png" type="Texture" id=2]
 [ext_resource path="res://mapas/mundo/Oculux Dead Front 3_5IN Round Open Reflector Trim - Flood _ 2700K.jpg" type="Texture" id=3]
 [ext_resource path="res://objetos/moveis/moveis.png" type="Texture" id=4]
+[ext_resource path="res://zombie/zombie.tscn" type="PackedScene" id=5]
 [ext_resource path="res://imagens/cursor/cursor.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -176,6 +177,8 @@ texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 570, 66, 146, 198 )
 
+[node name="zombie" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2252, 429 )
 [node name="cursor" parent="." instance=ExtResource( 5 )]
 frame = 1
 
