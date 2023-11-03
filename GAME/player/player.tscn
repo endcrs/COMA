@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player/sprites/player_color.svg" type="Texture" id=1]
 [ext_resource path="res://player/scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://player/scripts/limit_back.gd" type="Script" id=3]
 [ext_resource path="res://player/sprites/guns.svg" type="Texture" id=4]
+[ext_resource path="res://bullet/sprites/Shoot.svg" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9565
@@ -18,7 +19,7 @@ filters = [ "NodePlayer/Skeleton2D/Column/Back/Neck/cabeca:rotation_degrees", "N
 
 [sub_resource type="AnimationNodeOneShot" id=35]
 filter_enabled = true
-filters = [ "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back:position", "NodePlayer/Skeleton2D/Column/Back:rotation_degrees", "NodePlayer/Skeleton2D/Column:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d:position", "Skeleton2D/coluna/costas/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e:position", "Skeleton2D/coluna/costas/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:position", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:position", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos:position", "SpritePlayer/esqueleto/coluna/costas/bracos:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas:position", "SpritePlayer/esqueleto/coluna/costas:rotation_degrees", "SpritePlayer/esqueleto/coluna:position", "SpritePlayer/esqueleto/coluna:rotation_degrees" ]
+filters = [ "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back:position", "NodePlayer/Skeleton2D/Column/Back:rotation_degrees", "NodePlayer/Skeleton2D/Column:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d:position", "Skeleton2D/coluna/costas/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e:position", "Skeleton2D/coluna/costas/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:position", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:position", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos:position", "SpritePlayer/esqueleto/coluna/costas/bracos:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas:position", "SpritePlayer/esqueleto/coluna/costas:rotation_degrees", "SpritePlayer/esqueleto/coluna:position", "SpritePlayer/esqueleto/coluna:rotation_degrees" ]
 fadeout_time = 1.0
 
 [sub_resource type="AnimationNodeAnimation" id=36]
@@ -41,7 +42,7 @@ blend_point_1/node = SubResource( 40 )
 blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=32]
-graph_offset = Vector2( -242, 168 )
+graph_offset = Vector2( -213.249, 82.2056 )
 nodes/Idle/node = SubResource( 26 )
 nodes/Idle/position = Vector2( -321.12, 158.4 )
 nodes/IsMovementAim/node = SubResource( 27 )
@@ -57,7 +58,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "TimeScale", 0, "Walk", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "TimeScale 3", 0, "Shooter", "output", 0, "OneShot" ]
+node_connections = [ "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "TimeScale 3", 0, "Shooter", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "TimeScale", 0, "Walk", "output", 0, "OneShot" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -80,7 +81,7 @@ animation = "pulando"
 animation = "correndo_devagar"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -870.128, -81.7864 )
+graph_offset = Vector2( -963, -98 )
 nodes/Fall/node = SubResource( 45 )
 nodes/Fall/position = Vector2( -840, -40 )
 nodes/Idle/node = SubResource( 11 )
@@ -98,7 +99,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "output", 0, "IsOnFloor" ]
+node_connections = [ "TimeWalk", 0, "Walk", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "output", 0, "IsOnFloor" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1
@@ -575,6 +576,18 @@ tracks/37/keys = {
 "update": 0,
 "values": [ Vector2( 6, 0 ) ]
 }
+tracks/38/type = "value"
+tracks/38/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "andando"
@@ -999,6 +1012,18 @@ tracks/34/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0 ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=38]
@@ -1425,6 +1450,18 @@ tracks/34/keys = {
 "update": 0,
 "values": [ 0.0, 0.0 ]
 }
+tracks/35/type = "value"
+tracks/35/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "atirando"
@@ -1849,6 +1886,18 @@ tracks/34/keys = {
 "update": 0,
 "values": [ 29.693, 74.9999, 15.1948, 29.693 ]
 }
+tracks/35/type = "value"
+tracks/35/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=43]
 resource_name = "caindo"
@@ -2262,6 +2311,18 @@ tracks/33/keys = {
 "update": 0,
 "values": [ 91.4031 ]
 }
+tracks/34/type = "value"
+tracks/34/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "correndo"
@@ -2662,6 +2723,18 @@ tracks/32/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0 ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=49]
@@ -3088,6 +3161,18 @@ tracks/34/keys = {
 "update": 0,
 "values": [ 0.0, 0.0, 0.0 ]
 }
+tracks/35/type = "value"
+tracks/35/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "mirando"
@@ -3452,6 +3537,18 @@ tracks/29/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -4.984, 0 ), Vector2( -4.984, 0 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -3854,6 +3951,18 @@ tracks/32/keys = {
 "update": 0,
 "values": [ 0.0, 0.0 ]
 }
+tracks/33/type = "value"
+tracks/33/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=44]
 resource_name = "pulando"
@@ -3878,10 +3987,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 44.9188, 22.6038 ]
+"values": [ 18.3905 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("NodePlayer/Skeleton2D/LegL/ShinL:position")
@@ -3905,7 +4014,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 66.5208, 79.1047 ]
+"values": [ 99.0997, 90.4994 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("NodePlayer/Skeleton2D/LegL:position")
@@ -3917,7 +4026,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
+"values": [ Vector2( -2.35514, -5.61959 ), Vector2( -2.35514, -5.61959 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("NodePlayer/Skeleton2D/LegL:rotation_degrees")
@@ -3929,7 +4038,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -53.69, -46.3183 ]
+"values": [ -46.0278, -42.5027 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("NodePlayer/Skeleton2D/LegR/ShinR:position")
@@ -3953,7 +4062,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 71.3606, 45.5263 ]
+"values": [ 110.291, 106.869 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("NodePlayer/Skeleton2D/LegR:position")
@@ -3965,7 +4074,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -2.118, -5 ), Vector2( -2.118, -5 ) ]
+"values": [ Vector2( -7.35516, -5.61959 ), Vector2( -7.35516, -5.61959 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("NodePlayer/Skeleton2D/LegR:rotation_degrees")
@@ -3977,7 +4086,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -14.2298, 3.23376 ]
+"values": [ -38.1926, -31.4056 ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("NodePlayer/Skeleton2D/LegR/ShinR/FootR:position")
@@ -3998,10 +4107,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 10.5345, 26.7783 ]
+"values": [ 11.5196 ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:position")
@@ -4010,10 +4119,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4.516, 0 ), Vector2( 4.516, 0 ) ]
+"values": [ Vector2( 4.516, 0 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:rotation_degrees")
@@ -4022,10 +4131,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -6.20361, -15.0978 ]
+"values": [ -6.20361 ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("NodePlayer/Skeleton2D/Column/Back:position")
@@ -4034,10 +4143,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -1.19055, -31.748 ), Vector2( -1.19055, -31.748 ) ]
+"values": [ Vector2( -1.19055, -31.748 ) ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("NodePlayer/Skeleton2D/Column/Back:rotation_degrees")
@@ -4046,10 +4155,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 3.07238, 3.07238 ]
+"values": [ 3.07238 ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("NodePlayer/Skeleton2D/Column:position")
@@ -4058,10 +4167,10 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.642, 0 ), Vector2( -0.642, 0 ) ]
+"values": [ Vector2( -0.642, 0 ) ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("NodePlayer/Skeleton2D/Column:rotation_degrees")
@@ -4073,7 +4182,7 @@ tracks/17/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -2.62644, -2.61329 ]
+"values": [ 20.2114, 23.966 ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:position")
@@ -4082,10 +4191,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -4.22759, 34.9627 ), Vector2( -4.22759, 34.9627 ) ]
+"values": [ Vector2( -4.22759, 34.9627 ) ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:rotation_degrees")
@@ -4094,10 +4203,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -39.6811, -38.9189 ]
+"values": [ -39.6811 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:position")
@@ -4106,10 +4215,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.629757, 32.7828 ), Vector2( -0.629757, 32.7828 ) ]
+"values": [ Vector2( -0.629757, 32.7828 ) ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:rotation_degrees")
@@ -4118,10 +4227,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -26.395, -24.2427 ]
+"values": [ -26.395 ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:position")
@@ -4202,10 +4311,10 @@ tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 2.42619, -32.0637 ), Vector2( 2.42619, -32.0637 ) ]
+"values": [ Vector2( 2.42619, -32.0637 ) ]
 }
 tracks/29/type = "value"
 tracks/29/path = NodePath("NodePlayer/Skeleton2D/Column/Back/Neck:rotation_degrees")
@@ -4214,10 +4323,22 @@ tracks/29/loop_wrap = true
 tracks/29/imported = false
 tracks/29/enabled = true
 tracks/29/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -75.0002, -75.0002 ]
+"values": [ -75.0002 ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -4631,6 +4752,18 @@ tracks/33/keys = {
 "update": 0,
 "values": [ 0.0, 0.0 ]
 }
+tracks/34/type = "value"
+tracks/34/path = NodePath("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="Player" type="KinematicBody2D" groups=["player"]]
 z_index = 2
@@ -4643,7 +4776,7 @@ position = Vector2( 0, -90 )
 
 [node name="LegR" type="Sprite" parent="NodePlayer/Skeleton2D"]
 position = Vector2( -2.118, -5 )
-rotation = 0.0975842
+rotation = 0.0560064
 texture = ExtResource( 1 )
 offset = Vector2( 0.187286, 21.1636 )
 region_enabled = true
@@ -4676,8 +4809,8 @@ __meta__ = {
 }
 
 [node name="LegL" type="Sprite" parent="NodePlayer/Skeleton2D"]
-position = Vector2( -2.118, -5 )
-rotation = -0.0735209
+position = Vector2( -0.129, -5 )
+rotation = -0.0671333
 texture = ExtResource( 1 )
 offset = Vector2( 0.187286, 21.1636 )
 region_enabled = true
@@ -4711,6 +4844,7 @@ __meta__ = {
 
 [node name="Column" type="Bone2D" parent="NodePlayer/Skeleton2D"]
 position = Vector2( -0.642, 0 )
+rotation = 0.000660659
 rest = Transform2D( 1, 0, 0, 1, -0.642, 0 )
 __meta__ = {
 "_edit_bone_": true,
@@ -4719,6 +4853,7 @@ __meta__ = {
 
 [node name="Back" type="Bone2D" parent="NodePlayer/Skeleton2D/Column"]
 position = Vector2( -1.19055, -31.748 )
+rotation = 0.0866822
 rest = Transform2D( 1, 0, 0, 1, -1.19055, -31.748 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -4785,22 +4920,35 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="HandPosition" type="Position2D" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL"]
-position = Vector2( 0.284897, 8.26042 )
-rotation = 1.62293
+[node name="Pistol" type="Node2D" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL"]
+position = Vector2( 2.78949, 8.44081 )
+rotation = 1.58446
 
-[node name="Sprite" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/HandPosition"]
-position = Vector2( 7.65153, -2.31523 )
+[node name="Sprite" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol"]
 texture = ExtResource( 4 )
+offset = Vector2( 8, 0 )
 region_enabled = true
 region_rect = Rect2( 26, 21, 27, 19 )
 
-[node name="Shoot" type="Position2D" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/HandPosition/Sprite"]
-position = Vector2( 10.8461, -6.42267 )
+[node name="EndGun" type="Position2D" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol"]
+position = Vector2( 19.2817, -6.25898 )
+
+[node name="Sprite" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun"]
+visible = false
+position = Vector2( 0.937729, 2.26655 )
+texture = ExtResource( 4 )
+offset = Vector2( 17, 0 )
+region_enabled = true
+region_rect = Rect2( 23, 58, 34, 14 )
+
+[node name="Light2D" type="Light2D" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite"]
+texture = ExtResource( 5 )
+offset = Vector2( 17, 0 )
+energy = 3.0
 
 [node name="ArmR" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms"]
-position = Vector2( -4.984, 0 )
-rotation = 0.194737
+position = Vector2( -7.3651, -3.1748 )
+rotation = 0.150172
 z_index = 1
 texture = ExtResource( 1 )
 offset = Vector2( -1.52015, 16.8313 )
@@ -4813,7 +4961,7 @@ __meta__ = {
 
 [node name="ForeArmR" type="Sprite" parent="NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR"]
 position = Vector2( -4.22759, 34.9627 )
-rotation = -0.361651
+rotation = -0.579481
 texture = ExtResource( 1 )
 offset = Vector2( -0.409703, 15.8431 )
 region_enabled = true

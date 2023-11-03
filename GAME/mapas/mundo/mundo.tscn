@@ -5,11 +5,20 @@
 [ext_resource path="res://mapas/mundo/Oculux Dead Front 3_5IN Round Open Reflector Trim - Flood _ 2700K.jpg" type="Texture" id=3]
 [ext_resource path="res://objetos/moveis/moveis.png" type="Texture" id=4]
 [ext_resource path="res://zombie/zombie.tscn" type="PackedScene" id=5]
+[ext_resource path="res://imagens/cursor/cursor.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2432, 40 )
 
 [sub_resource type="Environment" id=2]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.8
+glow_blend_mode = 1
+glow_hdr_threshold = 1.5
+glow_bicubic_upscale = true
+adjustment_enabled = true
 
 [node name="mundo" type="Node"]
 
@@ -53,9 +62,6 @@ smoothing_enabled = true
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 552, 312, 552, -264, 2728, -264, 2728, -232, 1464, -232, 1464, -72, 1416, -72, 1417.88, -232, 600, -232, 602, 136, 2696, 136, 2696, 168, 2248, 168, 2216, 152, 2200, 152, 1928, 152, 1896, 168, 1464, 168, 1464, 312, 1416, 312, 1416, 168, 600, 168, 600, 312 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
-
 [node name="Light2D3" type="Light2D" parent="."]
 position = Vector2( 1764, 178 )
 scale = Vector2( 1.11781, 0.4823 )
@@ -69,6 +75,7 @@ __meta__ = {
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 1008, 175.694 )
 scale = Vector2( 1.11781, 0.480874 )
+z_index = 10
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
 energy = 3.0
@@ -116,7 +123,7 @@ region_rect = Rect2( 1418, 637, 461, 372 )
 
 [node name="estante" type="Sprite" parent="sprites"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1706, 388 )
+position = Vector2( 1706, 391 )
 scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 4 )
 region_enabled = true
@@ -172,3 +179,8 @@ region_rect = Rect2( 570, 66, 146, 198 )
 
 [node name="zombie" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2252, 429 )
+[node name="cursor" parent="." instance=ExtResource( 5 )]
+frame = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
