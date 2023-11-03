@@ -24,6 +24,6 @@ light_mask = 2
 scale = Vector2( 1.1, 1.1 )
 frames = SubResource( 1 )
 animation = "cursor_animation"
-frame = 2
+frame = 3
 playing = true
 script = ExtResource( 5 )
