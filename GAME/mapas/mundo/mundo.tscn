@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objetos/moveis/pngwing.com.png" type="Texture" id=2]
 [ext_resource path="res://mapas/mundo/Oculux Dead Front 3_5IN Round Open Reflector Trim - Flood _ 2700K.jpg" type="Texture" id=3]
 [ext_resource path="res://objetos/moveis/moveis.png" type="Texture" id=4]
+[ext_resource path="res://objetos/moveis/moveis2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2432, 40 )
@@ -25,7 +26,7 @@ __meta__ = {
 [node name="chão" type="StaticBody2D" parent="."]
 
 [node name="Polygon2D" type="Polygon2D" parent="chão"]
-position = Vector2( -594.584, 0 )
+position = Vector2( -472, 0 )
 scale = Vector2( 4.67692, 1 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -8, 520, 1032, 520, 1032, 1160, -7.99997, 1160 )
@@ -50,7 +51,7 @@ smoothing_enabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 552, 312, 552, -264, 2728, -264, 2728, -232, 1464, -232, 1464, -72, 1416, -72, 1417.88, -232, 600, -232, 602, 136, 2696, 136, 2696, 168, 2248, 168, 2216, 152, 2200, 152, 1928, 152, 1896, 168, 1464, 168, 1464, 312, 1416, 312, 1416, 168, 600, 168, 600, 312 )
+polygon = PoolVector2Array( 552, 312, 552, -264, 2728, -264, 2728, -232, 2728, 520, 2688, 520, 2688, -224, 1464, -232, 1464, -72, 1416, -72, 1417.88, -232, 600, -232, 602, 136, 2680, 136, 2680, 168, 2248, 168, 2216, 152, 2200, 152, 1928, 152, 1896, 168, 1464, 168, 1464, 312, 1416, 312, 1416, 168, 600, 168, 600, 312 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -85,6 +86,11 @@ energy = 3.0
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Polygon2D" type="Polygon2D" parent="Light2D2"]
+position = Vector2( 0, -16.0006 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 1388.43, 1495.83, 1388.43, 1448.09, 1366.96, 1448.09, 1366.96, 1400.35, 1345.49, 1400.35, 1345.49, 1352.61, 1324.02, 1352.61, 1324.02, 1304.87, 1302.55, 1304.87, 1302.55, 1257.13, 1281.08, 1257.13, 1281.08, 1209.39, 1259.61, 1209.39, 1259.61, 1161.65, 1238.14, 1161.65, 1238.14, 1113.91, 1216.66, 1113.91, 1216.66, 1066.17, 1195.19, 1066.17, 1195.19, 1018.44, 1173.72, 1018.44, 1173.72, 970.696, 1152.25, 970.696, 1152.25, 922.957, 1130.78, 922.957, 1130.78, 875.218, 1109.31, 875.218, 1109.31, 827.479, 1087.84, 827.479, 1087.84, 779.74, 1066.37, 779.74, 1066.37, 732, 987.645, 732, 987.645, 732, 794.41, 732, 794.41, 795.653, 1030.59, 795.653, 1073.53, 891.131, 1145.1, 1050.26, 1202.35, 1177.57, 1281.08, 1352.61, 1345.49, 1495.83 )
 
 [node name="Light2D4" type="Light2D" parent="."]
 position = Vector2( 2375, 173.168 )
@@ -168,3 +174,11 @@ scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 4 )
 region_enabled = true
 region_rect = Rect2( 570, 66, 146, 198 )
+
+[node name="Sprite" type="Sprite" parent="sprites"]
+visible = false
+position = Vector2( 2616, 264 )
+scale = Vector2( 1, 1.31937 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 1163, 634, 580, 400 )
