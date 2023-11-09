@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objetos/moveis/pngwing.com.png" type="Texture" id=2]
 [ext_resource path="res://mapas/mundo/Oculux Dead Front 3_5IN Round Open Reflector Trim - Flood _ 2700K.jpg" type="Texture" id=3]
 [ext_resource path="res://objetos/moveis/moveis.png" type="Texture" id=4]
 [ext_resource path="res://objetos/moveis/moveis2.png" type="Texture" id=5]
+[ext_resource path="res://mapas/mundo/4.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2432, 40 )
@@ -12,6 +13,22 @@ extents = Vector2( 2432, 40 )
 [sub_resource type="Environment" id=2]
 
 [node name="mundo" type="Node"]
+
+[node name="arvore1" type="Sprite" parent="."]
+modulate = Color( 0.0784314, 0.290196, 0.0352941, 1 )
+position = Vector2( 526, 242 )
+scale = Vector2( 1.54777, 1.56654 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 108, 540, 731, 432 )
+
+[node name="arvore2" type="Sprite" parent="."]
+modulate = Color( 0.0784314, 0.290196, 0.0352941, 1 )
+position = Vector2( 3229, 251 )
+scale = Vector2( 1.54777, 1.56654 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 108, 540, 731, 432 )
 
 [node name="Polygon2D3" type="Polygon2D" parent="."]
 position = Vector2( -942, -594 )
