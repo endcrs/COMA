@@ -23,13 +23,13 @@ func _physics_process(delta):
 
 func _on_detector_direita_body_entered(body):
 	if body.is_in_group("player"):
-		speedx = 2
+		speedx = .5
 	pass
 	
 	
 func _on_detector_esquerda_body_entered(body):
 	if body.is_in_group("player"):
-		speedx = -2
+		speedx = -.5
 	pass # Replace with function body.
 	
 func _on_detector_direita_body_exited(body):
