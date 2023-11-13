@@ -21,7 +21,7 @@ export (int) var GRAVITY = 2000
 export (int) var ADDICIONAL_FALL_GRAVITY = 200
 
 var state = StateMachine.IDLE
-var motion := Vector2.ZERO
+var motion = Vector2.ZERO
 var enter_state := true
 
 onready var nodePlayer : Node2D = get_node("NodePlayer")
