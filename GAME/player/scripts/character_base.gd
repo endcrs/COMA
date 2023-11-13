@@ -38,7 +38,7 @@ onready var endgun : Position2D = get_node("NodePlayer/Skeleton2D/Column/Back/No
 
 var bullet = preload("res://bullet/Bullet.tscn")
 var can_fire = true
-var bullet_speed = 2000
+var bullet_speed = 1500
 var fire_rate = .6
 
 onready var look : Node2D = get_node("Look")

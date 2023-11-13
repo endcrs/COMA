@@ -1,19 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/moveis/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://objects/moveis/moveis.png" type="Texture" id=2]
 [ext_resource path="res://light/sprite/Oculux Dead Front 3_5IN Round Open Reflector Trim - Flood _ 2700K.jpg" type="Texture" id=3]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://zombie/zombie.tscn" type="PackedScene" id=5]
+[ext_resource path="res://light/sprite/light square.jpg" type="Texture" id=5]
 [ext_resource path="res://images/cursor/cursor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/window/window.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2432, 40 )
+extents = Vector2( 3296, 44 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
 glow_enabled = true
-glow_intensity = 1.0
+glow_intensity = 0.1
 glow_strength = 0.8
 glow_blend_mode = 1
 glow_hdr_threshold = 1.5
@@ -22,50 +23,53 @@ adjustment_enabled = true
 
 [node name="Level1" type="Node2D"]
 
+[node name="background" type="Sprite" parent="."]
+visible = false
+position = Vector2( -512, -400 )
+scale = Vector2( 4.0073, 1 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Light2D" type="Light2D" parent="background"]
+position = Vector2( 822.5, 456 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+
 [node name="InsideWall" type="Polygon2D" parent="."]
-position = Vector2( -942, -594 )
+position = Vector2( -174, -594 )
 scale = Vector2( 2.56863, 2.14205 )
-color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
-polygon = PoolVector2Array( 600, 168, 600, 520, 1416, 520, 1416, 168 )
-__meta__ = {
-"_edit_lock_": true
-}
+polygon = PoolVector2Array( 491.313, 337.06, 491.313, 516.328, 1886.61, 516.328, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
 
 [node name="Wall" type="Polygon2D" parent="."]
+position = Vector2( 768, 0 )
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 552, 312, 552, -264, 2728, -264, 2728, -232, 1464, -232, 1464, -72, 1416, -72, 1417.88, -232, 600, -232, 602, 136, 2696, 136, 2696, 168, 2248, 168, 2216, 152, 2200, 152, 1928, 152, 1896, 168, 1464, 168, 1464, 312, 1416, 312, 1416, 168, 600, 168, 600, 312 )
+polygon = PoolVector2Array( 256, 296, 256, 120, 512, -128, 3712, -128, 3968, 120, 3904, 128, 3712, -64, 512, -64, 320, 128, 3904, 128, 3968, 120, 3968, 120, 3968, 120, 3968, 120, 3968, 168, 3968, 296, 3904, 296, 3904, 168, 2816, 168, 2816, 296, 2752, 296, 2752, 168, 1472, 168, 1472, 296, 1408, 296, 1408, 168, 320, 168, 320, 296 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 632, 0 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Floor"]
-position = Vector2( -594.584, 0 )
+position = Vector2( -632, 1 )
 scale = Vector2( 4.67692, 1 )
 color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( -8, 520, 1032, 520, 1032, 1160, -7.99997, 1160 )
+polygon = PoolVector2Array( -109.474, 511, 1300, 511, 1300, 1151, -109.474, 1151 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 1800, 560 )
+position = Vector2( 2152, 556 )
 shape = SubResource( 1 )
 
 [node name="CameraPlayer" type="Camera2D" parent="."]
-position = Vector2( 643, 316 )
+position = Vector2( 1275, 316 )
 current = true
+limit_left = 200
+limit_right = 5632
+limit_smoothed = true
 smoothing_enabled = true
 
 [node name="Lights" type="Node2D" parent="."]
-
-[node name="LivingroomLight" type="Light2D" parent="Lights"]
-position = Vector2( 1008, 175.694 )
-scale = Vector2( 1.11781, 0.480874 )
-z_index = 10
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-energy = 3.0
-shadow_enabled = true
-__meta__ = {
-"_edit_lock_": true
-}
+position = Vector2( 768, 0 )
 
 [node name="Light2D3" type="Light2D" parent="Lights"]
 position = Vector2( 1764, 178 )
@@ -77,6 +81,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Light2D" type="Light2D" parent="Lights"]
+position = Vector2( 864, 206.82 )
+scale = Vector2( 1.49041, 0.42623 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 3.0
+
+[node name="AmbientLight" type="Light2D" parent="Lights"]
+position = Vector2( 2112, 207.982 )
+scale = Vector2( 2.17872, 0.377193 )
+z_index = 10
+texture = ExtResource( 5 )
+offset = Vector2( 0, 350 )
+energy = 2.5
+shadow_enabled = true
+
 [node name="Light2D4" type="Light2D" parent="Lights"]
 position = Vector2( 2375, 173.168 )
 scale = Vector2( 1.11781, 0.492783 )
@@ -87,32 +107,28 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Bedroom" type="Light2D" parent="Lights"]
-position = Vector2( 1008, -223.956 )
-scale = Vector2( 1.11781, 0.502732 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-energy = 3.0
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="Objects" type="Node2D" parent="."]
+position = Vector2( 768, 0 )
+
+[node name="Window" parent="Objects" instance=ExtResource( 7 )]
+
+[node name="Window2" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 1048, 12 )
+
+[node name="Curtain" type="Sprite" parent="Objects/Window2"]
+position = Vector2( 1020, 302 )
+scale = Vector2( 0.856188, 0.890323 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1078.37, 497.197, 299.742, 310.708 )
 
 [node name="clock" type="Sprite" parent="Objects"]
+light_mask = 2
 position = Vector2( 1544, 344 )
 scale = Vector2( 0.191915, 0.193939 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1225.86, 224.811, 362.339, 824.713 )
-
-[node name="window" type="Sprite" parent="Objects"]
-modulate = Color( 0.375, 0.375, 0.375, 1 )
-position = Vector2( 1011, 327 )
-scale = Vector2( 0.358348, 0.362128 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 1418, 637, 461, 372 )
 
 [node name="bookcase" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
@@ -122,10 +138,10 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 60, 49, 461, 569 )
 
-[node name="sofa" type="Sprite" parent="Objects"]
+[node name="sofa" type="Sprite" parent="Objects/bookcase"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 803, 463 )
-scale = Vector2( 0.46122, 0.466084 )
+position = Vector2( -2006.93, 158.351 )
+scale = Vector2( 1.02507, 1.02507 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1206, 65, 563, 268 )
@@ -171,16 +187,19 @@ region_enabled = true
 region_rect = Rect2( 570, 66, 146, 198 )
 
 [node name="player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 644, 520 )
+position = Vector2( 1276, 520 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
 position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
 
-[node name="zombie" parent="." instance=ExtResource( 5 )]
-position = Vector2( 178, 430 )
-
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -248, 512 )
+
+[node name="Position2D2" type="Position2D" parent="."]
+position = Vector2( 5696, 512 )
