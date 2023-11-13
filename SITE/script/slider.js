@@ -45,10 +45,16 @@ controls.forEach((control) => {
 
     items.forEach((item) => item.classList.remove("current-item"));
 
+    //Código que faz a movimentação do slider de devs
+    // infelizmente não consegui corrigir 
+    // ao comentar, ele para de passar a imagem para o lado
+    ////
     items[currentItem].scrollIntoView({
-      behavior: "smooth",
+      behavior:"smooth",
       inline: "center"
     });
+
+    /////
 
     items[currentItem].classList.add("current-item");
   });
