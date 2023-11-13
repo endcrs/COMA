@@ -15,13 +15,13 @@ export (int) var JUMP_FORCE = -700
 export (int) var JUMP_RELEASE_FORCE = -400
 export (int) var MAXSPEED = 300
 export (int) var ACCELERATION = 1000
-export (int) var ACCELERATION_BLEND_ANIMATION = 10
+export (int) var ACCELERATION_BLEND_ANIMATION = 5
 export (int) var FRICTION = 5000
 export (int) var GRAVITY = 2000
 export (int) var ADDICIONAL_FALL_GRAVITY = 200
 
 var state = StateMachine.IDLE
-var motion := Vector2.ZERO
+var motion = Vector2.ZERO
 var enter_state := true
 
 onready var nodePlayer : Node2D = get_node("NodePlayer")
@@ -34,12 +34,11 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var back : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back")
 onready var neck : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back/Neck")
 
-onready var endgun : Position2D = get_node("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/HandPosition/Sprite/Shoot")
-onready var attackCoolDown : Timer = get_node("AttackCoolDown")
+onready var endgun : Position2D = get_node("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun")
 
 var bullet = preload("res://bullet/Bullet.tscn")
 var can_fire = true
-var bullet_speed = 1500
+var bullet_speed = 2000
 var fire_rate = .6
 
 onready var look : Node2D = get_node("Look")
@@ -82,7 +81,7 @@ func _apply_acceleration(amount: int, delta: float) -> void:
 	
 func _aim_mouse(pos: Vector2): 
 	_set_flip_aim(pos.x < self.global_position.x)
-	nodeArms.rotation += nodeArms.get_local_mouse_position().angle() * 0.30
+	nodeArms.rotation += nodeArms.get_local_mouse_position().angle() + .6 * 0.30
 	neck.rotation += neck.get_local_mouse_position().angle() - 92 * 0.15
 	back.rotation += back.get_local_mouse_position().angle() * 0.10
 
@@ -95,7 +94,7 @@ func _shoot():
 		bullet_instance.global_position = endgun.global_position
 		bullet_instance.rotation_degrees = look.rotation_degrees
 		bullet_instance.apply_impulse(Vector2(), Vector2(bullet_speed, 0).rotated(look.rotation))
-		get_parent().add_child(bullet_instance)
+		#get_parent().add_child(bullet_instance)
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate), "timeout")
 		can_fire = true
