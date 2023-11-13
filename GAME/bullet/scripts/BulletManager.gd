@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
 func handle_bullet_spawned(bullet: Bullet, position: Vector2, direction: Vector2):
 	add_child(bullet)
