@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="COMA"
-run/main_scene="res://mapas/mundo/mundo.tscn"
+run/main_scene="res://levels/level1/level1.tscn"
 config/icon="res://icon.png"
 
 [gui]

@@ -9,6 +9,7 @@ func _process(delta: float) -> void:
 		StateMachine.JUMP: _state_jump(delta)
 		StateMachine.FALL: _state_fall(delta)
 
+### FUNÇÕES DOS ESTADOS DO PLAYER ###
 func _state_idle(delta: float) -> void:
 	_travel_animation_state_parameters("Move")
 	_set_animation_tree_parameters("parameters/Move/IsOnFloor/blend_amount", true, delta)
