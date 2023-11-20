@@ -185,7 +185,6 @@ position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
 
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
-frame = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -209,8 +208,8 @@ texture = SubResource( 4 )
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
-motion_scale = Vector2( 0.7, 1 )
-motion_mirroring = Vector2( 750, 0 )
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 1500, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
 position = Vector2( 0, 253 )
@@ -219,15 +218,30 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 135, 196, 768, 260 )
 
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 768, 253 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 135, 196, 768, 260 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 850, 0 )
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 1700, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color( 0.666667, 0.662745, 0.662745, 1 )
 position = Vector2( 0, 146 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 77, 600, 883, 373 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.666667, 0.662745, 0.662745, 1 )
+position = Vector2( 768, 146 )
 texture = ExtResource( 8 )
 centered = false
 region_enabled = true
