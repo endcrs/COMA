@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float amplitude = 3;
+uniform float speed = 2;
+
+void vertex() {
+	VERTEX.x += amplitude * sin((.5 - UV.y) * speed * TIME);
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/amplitude = 3.0
+shader_param/speed = 2.0
