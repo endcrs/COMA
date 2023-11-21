@@ -9,6 +9,7 @@
 [ext_resource path="res://objects/window/window.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/level1/sprites/5.png" type="Texture" id=8]
 
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
 
@@ -38,6 +39,7 @@ scale = Vector2( 2.56863, 2.14205 )
 color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
 polygon = PoolVector2Array( 491.313, 337.06, 491.313, 516.328, 731.129, 516.328, 731.129, 400.551, 782.518, 400.551, 782.518, 456.572, 731.129, 456.572, 731.129, 516.328, 1654.58, 516.328, 1654.58, 396.816, 1704.41, 396.816, 1704.41, 452.837, 1654.58, 452.837, 1654.58, 516.328, 1886.61, 516.328, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
+
 
 [node name="Wall" type="Polygon2D" parent="."]
 position = Vector2( 768, 0 )
@@ -70,6 +72,7 @@ position = Vector2( 768, 0 )
 
 [node name="Light2D3" type="Light2D" parent="Lights"]
 position = Vector2( 1784, 178 )
+
 scale = Vector2( 1.11781, 0.4823 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
@@ -89,6 +92,7 @@ shadow_enabled = true
 
 [node name="Light2D4" type="Light2D" parent="Lights"]
 position = Vector2( 2439, 177 )
+
 scale = Vector2( 1.11781, 0.492783 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
@@ -108,6 +112,7 @@ position = Vector2( 3372, 316 )
 
 [node name="Curtain" type="Sprite" parent="Objects/Window2"]
 position = Vector2( 0, 11 )
+
 scale = Vector2( 0.856188, 0.890323 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -115,11 +120,13 @@ region_rect = Rect2( 1078.37, 497.197, 299.742, 310.708 )
 
 [node name="clock" type="Sprite" parent="Objects"]
 light_mask = 2
+
 position = Vector2( 1952, 295 )
 scale = Vector2( 0.191915, 0.193939 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1225.86, 224.811, 362.339, 824.713 )
+
 
 [node name="sofa" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
@@ -140,6 +147,7 @@ region_rect = Rect2( 60, 49, 461, 569 )
 [node name="sofa2" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1272, 449 )
+
 scale = Vector2( 0.427161, 0.431666 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -147,7 +155,9 @@ region_rect = Rect2( 741, 529, 290, 294 )
 
 [node name="balchony" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
+
 position = Vector2( 1002, 453 )
+
 scale = Vector2( 0.312537, 0.315833 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -156,6 +166,7 @@ region_rect = Rect2( 765, 85, 366, 380 )
 [node name="lamp" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 1125, 418 )
+
 scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 2 )
 region_enabled = true

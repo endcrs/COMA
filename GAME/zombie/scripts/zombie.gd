@@ -4,6 +4,7 @@ export (int) var GRAVITY = 600
 
 onready var player = get_parent().get_node("player")
 var speed = 65
+
 var player_position = Vector2.ZERO
 var target_position = Vector2.ZERO
 
