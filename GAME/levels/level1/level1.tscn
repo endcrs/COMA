@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/moveis/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://objects/moveis/moveis.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://light/sprite/light square.jpg" type="Texture" id=5]
 [ext_resource path="res://images/cursor/cursor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/window/window.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/scripts/Level.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
@@ -22,17 +23,19 @@ glow_bicubic_upscale = true
 adjustment_enabled = true
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 8 )
 
-[node name="background" type="Sprite" parent="."]
+[node name="ZombieTimer" type="Timer" parent="."]
+
+[node name="Background" type="Sprite" parent="."]
 visible = false
 position = Vector2( -512, -400 )
 scale = Vector2( 4.0073, 1 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Light2D" type="Light2D" parent="background"]
+[node name="Light2D" type="Light2D" parent="Background"]
 position = Vector2( 822.5, 456 )
-scale = Vector2( 1, 1 )
 texture = ExtResource( 5 )
 
 [node name="InsideWall" type="Polygon2D" parent="."]
@@ -186,10 +189,10 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 570, 66, 146, 198 )
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1276, 520 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
 
@@ -198,8 +201,10 @@ remote_path = NodePath("../../CameraPlayer")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -248, 512 )
+[node name="ZombieSpawnerLeft" type="Position2D" parent="."]
+position = Vector2( -224, 512 )
 
-[node name="Position2D2" type="Position2D" parent="."]
+[node name="ZombieSpawnerRight" type="Position2D" parent="."]
 position = Vector2( 5696, 512 )
+
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]

@@ -58,7 +58,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "output", 0, "OneShot", "TimeScale", 0, "Walk", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "TimeScale 3", 0, "Shooter" ]
+node_connections = [ "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "TimeScale", 0, "Walk", "TimeScale 3", 0, "Shooter", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "output", 0, "OneShot" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -81,7 +81,7 @@ animation = "pulando"
 animation = "correndo_devagar"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -963, -98 )
+graph_offset = Vector2( -742.264, -96.491 )
 nodes/Fall/node = SubResource( 45 )
 nodes/Fall/position = Vector2( -840, -40 )
 nodes/Idle/node = SubResource( 11 )
@@ -99,7 +99,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "output", 0, "IsOnFloor", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "TimeWalk", 0, "Walk", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall" ]
+node_connections = [ "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "output", 0, "IsOnFloor" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1

@@ -1,5 +1,7 @@
 class_name CharacterBase extends KinematicBody2D
 
+var Life = 25
+
 enum StateMachine {
 	IDLE,
 	IDLE_AIM
@@ -49,6 +51,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	look.look_at(get_global_mouse_position())
 	_move_and_slide()
+	print(Life)
 
 func _apply_gravity(delta: float) -> void:
 	motion.y += GRAVITY * delta
