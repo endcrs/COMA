@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var Life = 12
 var speed = 75
+
 var player_position = Vector2.ZERO
 var target_position = Vector2.ZERO
 

@@ -53,27 +53,34 @@ func _physics_process(delta: float) -> void:
 	_move_and_slide()
 	print(Life)
 
+# APLICAR GRAVIDADE
 func _apply_gravity(delta: float) -> void:
 	motion.y += GRAVITY * delta
-	
+
+# MOVIMENTAÇÃO
 func _move_and_slide() -> void:
 	motion = move_and_slide(motion, UP)
 
+# RETORNA OS INPUTS DE MOVIMENTO
 func _get_input_axis() -> int:
 	var input = Vector2.ZERO
 	
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	return input.x
 	
+# APLICA PARAMETROS DE ANIMAÇÃO
 func _set_animation_tree_parameters(parameters: String, duration: float, delta: float):
 	animationTree.set(parameters, lerp(animationTree.get(parameters), duration, ACCELERATION_BLEND_ANIMATION * delta))
-	
+
+# VIAJA ENTRE OS ESTADOS DO ANIMATION TREE
 func _travel_animation_state_parameters(state: String):
 	animationState.travel(state)
-	
+
+# APLICA DESASELERAÇÃO DO MOVIMENTO
 func _apply_friction(delta: float) -> void:
 	motion.x = move_toward(motion.x, 0, FRICTION * delta)
-	
+
+# APLICA ACELERAÇÃO NO MOVIMENTO
 func _apply_acceleration(amount: int, delta: float) -> void:
 	motion.x = move_toward(motion.x, MAXSPEED * amount, ACCELERATION * delta)
 	
@@ -81,13 +88,15 @@ func _apply_acceleration(amount: int, delta: float) -> void:
 		MAXSPEED = 100
 	else:
 		MAXSPEED = 300
-	
+
+# APLICA A MIRA DO PERSONAGEM COM O MOUSE
 func _aim_mouse(pos: Vector2): 
 	_set_flip_aim(pos.x < self.global_position.x)
 	nodeArms.rotation += nodeArms.get_local_mouse_position().angle() + .6 * 0.30
 	neck.rotation += neck.get_local_mouse_position().angle() - 92 * 0.15
 	back.rotation += back.get_local_mouse_position().angle() * 0.10
 
+# TIRO
 func _shoot():
 	if can_fire:
 		animationTree.set("parameters/Aim/OneShot/active", true)
@@ -101,7 +110,8 @@ func _shoot():
 		can_fire = false
 		yield(get_tree().create_timer(fire_rate), "timeout")
 		can_fire = true
-	
+
+# INVERTE A MIRA 
 func _set_flip_aim(value: bool):
 	match value:
 		true:
@@ -112,7 +122,8 @@ func _set_flip_aim(value: bool):
 func _set_flip() -> void:
 	if _get_input_axis() != 0:
 		nodePlayer.scale.x = _get_input_axis()
-	
+
+# A ANIMAÇÃO DAS PERNAS PRECISA FUNCIONAR SEPARADAMENTE
 func _animate_legs(parameters: String, delta: float):
 	var is_forward: bool = (
 		(nodePlayer.scale.x == 1 and motion.x > 0) or (nodePlayer.scale.x == -1 and motion.x < 0)
@@ -121,6 +132,7 @@ func _animate_legs(parameters: String, delta: float):
 		true: _set_animation_tree_parameters(parameters, 1, delta)
 		false: _set_animation_tree_parameters(parameters, -1, delta)
 
+# FUNÇÃO PARA ALTERAR OS ESTADOS
 func _enter_state(new_state) -> void:
 	if state != new_state:
 		state = new_state

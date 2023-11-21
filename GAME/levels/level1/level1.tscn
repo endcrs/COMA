@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/moveis/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://objects/moveis/moveis.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://images/cursor/cursor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/window/window.tscn" type="PackedScene" id=7]
 [ext_resource path="res://levels/scripts/Level.gd" type="Script" id=8]
+[ext_resource path="res://levels/level1/sprites/5.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
@@ -22,28 +23,24 @@ glow_hdr_threshold = 1.5
 glow_bicubic_upscale = true
 adjustment_enabled = true
 
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0.223464, 0.793296 )
+colors = PoolColorArray( 1, 0.515625, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+width = 1080
+
 [node name="Level1" type="Node2D"]
-script = ExtResource( 8 )
-
-[node name="ZombieTimer" type="Timer" parent="."]
-
-[node name="Background" type="Sprite" parent="."]
-visible = false
-position = Vector2( -512, -400 )
-scale = Vector2( 4.0073, 1 )
-texture = ExtResource( 5 )
-centered = false
-
-[node name="Light2D" type="Light2D" parent="Background"]
-position = Vector2( 822.5, 456 )
-texture = ExtResource( 5 )
 
 [node name="InsideWall" type="Polygon2D" parent="."]
 position = Vector2( -174, -594 )
 scale = Vector2( 2.56863, 2.14205 )
-color = Color( 0.0156863, 0.0156863, 0.0156863, 1 )
+color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
-polygon = PoolVector2Array( 491.313, 337.06, 491.313, 516.328, 1886.61, 516.328, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
+polygon = PoolVector2Array( 491.313, 337.06, 491.313, 516.328, 731.129, 516.328, 731.129, 400.551, 782.518, 400.551, 782.518, 456.572, 731.129, 456.572, 731.129, 516.328, 1654.58, 516.328, 1654.58, 396.816, 1704.41, 396.816, 1704.41, 452.837, 1654.58, 452.837, 1654.58, 516.328, 1886.61, 516.328, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
+
 
 [node name="Wall" type="Polygon2D" parent="."]
 position = Vector2( 768, 0 )
@@ -75,7 +72,8 @@ smoothing_enabled = true
 position = Vector2( 768, 0 )
 
 [node name="Light2D3" type="Light2D" parent="Lights"]
-position = Vector2( 1764, 178 )
+position = Vector2( 1784, 178 )
+
 scale = Vector2( 1.11781, 0.4823 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
@@ -84,24 +82,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Light2D" type="Light2D" parent="Lights"]
-position = Vector2( 864, 206.82 )
-scale = Vector2( 1.49041, 0.42623 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-energy = 3.0
-
 [node name="AmbientLight" type="Light2D" parent="Lights"]
 position = Vector2( 2112, 207.982 )
 scale = Vector2( 2.17872, 0.377193 )
 z_index = 10
 texture = ExtResource( 5 )
 offset = Vector2( 0, 350 )
-energy = 2.5
+energy = 0.8
 shadow_enabled = true
 
 [node name="Light2D4" type="Light2D" parent="Lights"]
-position = Vector2( 2375, 173.168 )
+position = Vector2( 2439, 177 )
+
 scale = Vector2( 1.11781, 0.492783 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
@@ -114,12 +106,14 @@ __meta__ = {
 position = Vector2( 768, 0 )
 
 [node name="Window" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 1002, 323 )
 
 [node name="Window2" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 1048, 12 )
+position = Vector2( 3372, 316 )
 
 [node name="Curtain" type="Sprite" parent="Objects/Window2"]
-position = Vector2( 1020, 302 )
+position = Vector2( 0, 11 )
+
 scale = Vector2( 0.856188, 0.890323 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -127,31 +121,34 @@ region_rect = Rect2( 1078.37, 497.197, 299.742, 310.708 )
 
 [node name="clock" type="Sprite" parent="Objects"]
 light_mask = 2
-position = Vector2( 1544, 344 )
+
+position = Vector2( 1952, 295 )
 scale = Vector2( 0.191915, 0.193939 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 1225.86, 224.811, 362.339, 824.713 )
 
+
+[node name="sofa" type="Sprite" parent="Objects"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 720, 450 )
+scale = Vector2( 0.461221, 0.466085 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1206, 65, 563, 268 )
+
 [node name="bookcase" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1706, 391 )
+position = Vector2( 1707, 384 )
 scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 60, 49, 461, 569 )
 
-[node name="sofa" type="Sprite" parent="Objects/bookcase"]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( -2006.93, 158.351 )
-scale = Vector2( 1.02507, 1.02507 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 1206, 65, 563, 268 )
-
 [node name="sofa2" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1158, 472 )
+position = Vector2( 1272, 449 )
+
 scale = Vector2( 0.427161, 0.431666 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -159,7 +156,9 @@ region_rect = Rect2( 741, 529, 290, 294 )
 
 [node name="balchony" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1011, 466 )
+
+position = Vector2( 1002, 453 )
+
 scale = Vector2( 0.312537, 0.315833 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -167,7 +166,8 @@ region_rect = Rect2( 765, 85, 366, 380 )
 
 [node name="lamp" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1243, 425 )
+position = Vector2( 1125, 418 )
+
 scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -175,7 +175,7 @@ region_rect = Rect2( 570, 607, 107, 432 )
 
 [node name="flower" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 1576, 482 )
+position = Vector2( 1880, 474 )
 scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -183,7 +183,7 @@ region_rect = Rect2( 998, 866, 97, 173 )
 
 [node name="plant" type="Sprite" parent="Objects"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 969, 368 )
+position = Vector2( 967, 352 )
 scale = Vector2( 0.449941, 0.454686 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -207,4 +207,56 @@ position = Vector2( -224, 512 )
 [node name="ZombieSpawnerRight" type="Position2D" parent="."]
 position = Vector2( 5696, 512 )
 
+
 [connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_mirroring = Vector2( 1980, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground2/ParallaxLayer2"]
+position = Vector2( 0, 900 )
+rotation = -1.5708
+scale = Vector2( 1, 1980 )
+texture = SubResource( 4 )
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 1500, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 0, 253 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 135, 196, 768, 260 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2( 768, 253 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 135, 196, 768, 260 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 1700, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.666667, 0.662745, 0.662745, 1 )
+position = Vector2( 0, 146 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 77, 600, 883, 373 )
+
+[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.666667, 0.662745, 0.662745, 1 )
+position = Vector2( 768, 146 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 77, 600, 883, 373 )
