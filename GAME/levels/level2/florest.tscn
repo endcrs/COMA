@@ -88,7 +88,7 @@ region_enabled = true
 region_rect = Rect2( 108, 540, 731, 432 )
 
 [node name="CameraPlayer" type="Camera2D" parent="."]
-position = Vector2( 207, 268 )
+position = Vector2( 1287, 292 )
 current = true
 limit_left = 200
 limit_right = 4800
@@ -96,7 +96,7 @@ limit_smoothed = true
 smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 208, 472 )
+position = Vector2( 1288, 496 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -1, -204 )
