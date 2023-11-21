@@ -7,8 +7,8 @@
 [ext_resource path="res://light/sprite/light square.jpg" type="Texture" id=5]
 [ext_resource path="res://images/cursor/cursor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/window/window.tscn" type="PackedScene" id=7]
-[ext_resource path="res://levels/level1/sprites/5.png" type="Texture" id=8]
-
+[ext_resource path="res://levels/scripts/Level.gd" type="Script" id=8]
+[ext_resource path="res://levels/level1/sprites/5.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
@@ -22,6 +22,7 @@ glow_blend_mode = 1
 glow_hdr_threshold = 1.5
 glow_bicubic_upscale = true
 adjustment_enabled = true
+
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.223464, 0.793296 )
@@ -188,10 +189,10 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 570, 66, 146, 198 )
 
-[node name="player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1276, 520 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
 
@@ -200,12 +201,14 @@ remote_path = NodePath("../../CameraPlayer")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -248, 512 )
+[node name="ZombieSpawnerLeft" type="Position2D" parent="."]
+position = Vector2( -224, 512 )
 
-[node name="Position2D2" type="Position2D" parent="."]
+[node name="ZombieSpawnerRight" type="Position2D" parent="."]
 position = Vector2( 5696, 512 )
 
+
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
