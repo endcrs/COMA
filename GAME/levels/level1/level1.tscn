@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://objects/moveis/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://objects/moveis/moveis.png" type="Texture" id=2]
@@ -12,9 +12,43 @@
 [ext_resource path="res://levels/level1/sprites/8.png" type="Texture" id=10]
 [ext_resource path="res://levels/level1/sprites/12.png" type="Texture" id=11]
 [ext_resource path="res://levels/level1/sprites/9.png" type="Texture" id=12]
+[ext_resource path="res://objects/fire/Fire.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "piscando"
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5, 5.1, 5.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 3.0, 0.0, 3.0 ]
+}
 
 [sub_resource type="Environment" id=2]
 background_mode = 4
@@ -27,8 +61,8 @@ glow_bicubic_upscale = true
 adjustment_enabled = true
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0.223464, 0.793296 )
-colors = PoolColorArray( 1, 0.515625, 0, 1, 1, 1, 1, 1 )
+offsets = PoolRealArray( 0, 0.734848 )
+colors = PoolColorArray( 0, 0.194105, 0.666992, 1, 0, 0.0724316, 0.151367, 1 )
 
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
@@ -40,17 +74,23 @@ script = ExtResource( 8 )
 [node name="InsideWall" type="Polygon2D" parent="."]
 position = Vector2( -174, -594 )
 scale = Vector2( 2.56863, 2.14205 )
-color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
-polygon = PoolVector2Array( 491.313, 337.06, 491.313, 516.328, 731.129, 516.328, 731.129, 400.551, 782.518, 400.551, 782.518, 456.572, 731.129, 456.572, 731.129, 516.328, 1654.58, 516.328, 1654.58, 396.816, 1704.41, 396.816, 1704.41, 452.837, 1654.58, 452.837, 1654.58, 516.328, 1886.61, 516.328, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
-__meta__ = {
-"_edit_lock_": true
-}
+polygon = PoolVector2Array( 491.313, 337.06, 491.313, 415.49, 478.855, 415.49, 478.855, 516.328, 731.129, 516.328, 731.129, 400.551, 782.518, 400.551, 782.518, 456.572, 731.129, 456.572, 731.129, 516.328, 1168.72, 516.328, 1168.72, 456.572, 1168.72, 400.551, 1218.55, 400.551, 1218.55, 456.572, 1168.72, 456.572, 1168.72, 516.328, 1654.58, 516.328, 1654.58, 396.816, 1704.41, 396.816, 1704.41, 452.837, 1654.58, 452.837, 1654.58, 516.328, 1899.07, 516.328, 1899.07, 415.49, 1886.61, 415.49, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
 
-[node name="Wall" type="Polygon2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( 1024, 296, 1088, 296, 1088, 168, 2176, 168, 2176, 296, 2240, 296, 2240, 168, 3520, 168, 3520, 296, 3584, 296, 3584, 168, 4672, 168, 4672, 296, 4736, 296, 4736, 120, 4480, -128, 1280, -128, 1024, 120 )
+
+[node name="Wall" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2( 768, 0 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 256, 296, 256, 120, 512, -128, 3712, -128, 3968, 120, 3904, 128, 3712, -64, 512, -64, 320, 128, 3904, 128, 3968, 120, 3968, 120, 3968, 120, 3968, 120, 3968, 168, 3968, 296, 3904, 296, 3904, 168, 2816, 168, 2816, 296, 2752, 296, 2752, 168, 1472, 168, 1472, 296, 1408, 296, 1408, 168, 320, 168, 320, 296 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 632, 0 )
@@ -64,6 +104,35 @@ polygon = PoolVector2Array( -109.474, 511, 1300, 511, 1300, 1151, -109.474, 1151
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 2152, 556 )
 shape = SubResource( 1 )
+
+[node name="Doors" type="Node2D" parent="Floor"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door" parent="Floor/Doors" instance=ExtResource( 14 )]
+position = Vector2( 432, 404 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door2" parent="Floor/Doors" instance=ExtResource( 14 )]
+position = Vector2( 1584, 404 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door3" parent="Floor/Doors" instance=ExtResource( 14 )]
+position = Vector2( 2928, 404 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Door4" parent="Floor/Doors" instance=ExtResource( 14 )]
+position = Vector2( 4080, 404 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CameraPlayer" type="Camera2D" parent="."]
 position = Vector2( 1275, 316 )
@@ -82,17 +151,19 @@ scale = Vector2( 1.11781, 0.4823 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 350 )
 energy = 3.0
-__meta__ = {
-"_edit_lock_": true
-}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light2D3"]
+autoplay = "piscando"
+playback_speed = 2.5
+anims/RESET = SubResource( 5 )
+anims/piscando = SubResource( 6 )
 
 [node name="AmbientLight" type="Light2D" parent="Lights"]
-position = Vector2( 2112, 207.982 )
-scale = Vector2( 2.17872, 0.377193 )
+position = Vector2( 2272, -99.5702 )
+scale = Vector2( 3.69605, 0.758771 )
 z_index = 10
 texture = ExtResource( 5 )
 offset = Vector2( 0, 350 )
-energy = 0.8
 shadow_enabled = true
 
 [node name="Light2D4" type="Light2D" parent="Lights"]
@@ -105,7 +176,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Light2D5" type="Light2D" parent="Lights"]
+position = Vector2( 1124, 348.284 )
+scale = Vector2( 0.284931, 0.26776 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 3.0
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="fire" type="Light2D" parent="Lights"]
+visible = false
 modulate = Color( 0.854902, 0.168627, 0.168627, 1 )
 position = Vector2( 3073, 310.415 )
 scale = Vector2( 0.78185, 0.275956 )
@@ -121,7 +203,7 @@ position = Vector2( 768, 0 )
 position = Vector2( 1002, 323 )
 
 [node name="Window2" parent="Objects" instance=ExtResource( 7 )]
-position = Vector2( 3372, 316 )
+position = Vector2( 2124, 323 )
 
 [node name="Curtain" type="Sprite" parent="Objects/Window2"]
 position = Vector2( 0, 11 )
@@ -129,6 +211,9 @@ scale = Vector2( 0.856188, 0.890323 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 1078.37, 497.197, 299.742, 310.708 )
+
+[node name="Window3" parent="Objects" instance=ExtResource( 7 )]
+position = Vector2( 3372, 316 )
 
 [node name="clock" type="Sprite" parent="Objects"]
 light_mask = 2
@@ -153,7 +238,7 @@ region_enabled = true
 region_rect = Rect2( 60, 49, 461, 569 )
 
 [node name="sofa2" type="Sprite" parent="Objects"]
-position = Vector2( 1272, 449 )
+position = Vector2( 1272, 464 )
 scale = Vector2( 0.427161, 0.431666 )
 texture = ExtResource( 2 )
 region_enabled = true
@@ -194,273 +279,57 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 570, 66, 146, 198 )
 
-[node name="box1" type="Sprite" parent="Objects"]
-position = Vector2( 471.35, 103.175 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box2" type="Sprite" parent="Objects"]
-position = Vector2( 552, 104 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box3" type="Sprite" parent="Objects"]
-position = Vector2( 518, 64 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box19" type="Sprite" parent="Objects"]
-position = Vector2( 2692.91, 109.931 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box20" type="Sprite" parent="Objects"]
-position = Vector2( 2773.56, 110.756 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box21" type="Sprite" parent="Objects"]
-position = Vector2( 2739.56, 70.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box4" type="Sprite" parent="Objects"]
-position = Vector2( 641, 106 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
 [node name="table" type="Sprite" parent="Objects"]
-position = Vector2( 1387.72, 99.4386 )
+position = Vector2( 1388, 108 )
 scale = Vector2( 0.268361, 0.222187 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 131, 619, 412, 337 )
 
-[node name="box5" type="Sprite" parent="Objects"]
-position = Vector2( 1386, 45 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box6" type="Sprite" parent="Objects"]
-position = Vector2( 1311, 106 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box7" type="Sprite" parent="Objects"]
-position = Vector2( 1298, 68 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
 [node name="bench" type="Sprite" parent="Objects"]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 743, 110 )
 scale = Vector2( 0.230546, 0.208452 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 119, 218, 314, 202 )
 
-[node name="box8" type="Sprite" parent="Objects"]
-position = Vector2( 957, 104 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
 [node name="books" type="Sprite" parent="Objects"]
-position = Vector2( 953, 69 )
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 956, 76 )
 scale = Vector2( 0.230546, 0.208452 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 813, 130, 319, 215 )
 
-[node name="box9" type="Sprite" parent="Objects"]
-position = Vector2( 3782, 92 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -74.7832, 84.5748 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box10" type="Sprite" parent="Objects"]
-position = Vector2( 3782, 92 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -608.951, 79.2888 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box11" type="Sprite" parent="Objects"]
-position = Vector2( 3782, 92 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -566.217, -132.148 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box28" type="Sprite" parent="Objects"]
-position = Vector2( 2229.91, 84.1748 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -74.7832, 84.5748 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box29" type="Sprite" parent="Objects"]
-position = Vector2( 2229.91, 84.1748 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -608.951, 79.2888 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box30" type="Sprite" parent="Objects"]
-position = Vector2( 2229.91, 84.1748 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -566.217, -132.148 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box12" type="Sprite" parent="Objects"]
-position = Vector2( 3782, 92 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -624.975, -333.013 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box15" type="Sprite" parent="Objects"]
-position = Vector2( 2967.11, 93.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -74.7832, 84.5748 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box16" type="Sprite" parent="Objects"]
-position = Vector2( 2967.11, 93.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -608.951, 79.2888 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box17" type="Sprite" parent="Objects"]
-position = Vector2( 2967.11, 93.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -566.217, -132.148 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box18" type="Sprite" parent="Objects"]
-position = Vector2( 2967.11, 93.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-offset = Vector2( -624.975, -333.013 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box13" type="Sprite" parent="Objects"]
-position = Vector2( 3404, 105 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box14" type="Sprite" parent="Objects"]
-position = Vector2( 3394, 67 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box22" type="Sprite" parent="Objects"]
-position = Vector2( 2348.11, 106.756 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box23" type="Sprite" parent="Objects"]
-position = Vector2( 2338.11, 68.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box24" type="Sprite" parent="Objects"]
-position = Vector2( 1653.11, 106.756 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box25" type="Sprite" parent="Objects"]
-position = Vector2( 1640.11, 68.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
-[node name="box26" type="Sprite" parent="Objects"]
-position = Vector2( 1748.11, 107.756 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 158, 228, 405, 245 )
-
-[node name="box27" type="Sprite" parent="Objects"]
-position = Vector2( 1738.11, 69.7559 )
-scale = Vector2( 0.187207, 0.189182 )
-texture = ExtResource( 10 )
-region_enabled = true
-region_rect = Rect2( 63, 719, 514, 230 )
-
 [node name="bench2" type="Sprite" parent="Objects"]
-position = Vector2( 3195, 89 )
-rotation = -1.78527
-scale = Vector2( 0.336099, 0.339644 )
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3188, 104 )
+rotation = -1.78715
+scale = Vector2( 0.233667, 0.236131 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 1505, 129, 241, 450.04 )
 
 [node name="dining table" type="Sprite" parent="Objects"]
-position = Vector2( 2437, 423 )
+position = Vector2( 2404, 452 )
 rotation = 0.000761151
-scale = Vector2( 0.547431, 0.499507 )
+scale = Vector2( 0.384372, 0.350723 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 708, 540, 529, 363.927 )
 
 [node name="decoration" type="Sprite" parent="Objects"]
-position = Vector2( 2642, 275 )
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2624, 276 )
 rotation = 0.000761151
-scale = Vector2( 0.198623, 0.181235 )
+scale = Vector2( 0.33729, 0.307763 )
 texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 1364, 687, 374, 285 )
 
 [node name="decoration3" type="Sprite" parent="Objects"]
+modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 position = Vector2( 3683, 308 )
 rotation = 0.000761151
 scale = Vector2( 0.294779, 0.268973 )
@@ -469,7 +338,7 @@ region_enabled = true
 region_rect = Rect2( 762, 618, 319, 432 )
 
 [node name="decoration2" type="Sprite" parent="Objects"]
-modulate = Color( 0.145098, 0.141176, 0.141176, 1 )
+modulate = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 position = Vector2( 3079, 339 )
 rotation = 0.000761151
 scale = Vector2( 0.570609, 0.554942 )
@@ -480,6 +349,264 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="CampFire" parent="Objects" instance=ExtResource( 13 )]
+position = Vector2( 3068, 440 )
+rotation = 0.000761151
+scale = Vector2( 0.570609, 0.554942 )
+
+[node name="Box" type="Node2D" parent="Objects"]
+
+[node name="box9" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3782, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -74.7832, 84.5748 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box10" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3782, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -608.951, 79.2888 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box11" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3782, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -566.217, -132.148 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box28" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2232, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -74.7832, 84.5748 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box29" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2232, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -608.951, 79.2888 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box30" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2228, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -566.217, -132.148 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box12" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3782, 92 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -624.975, -333.013 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box15" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2967.11, 93.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -74.7832, 84.5748 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box16" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2967.11, 93.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -608.951, 79.2888 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box17" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2967.11, 93.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -566.217, -132.148 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box18" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2967.11, 93.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+offset = Vector2( -624.975, -333.013 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box13" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3404, 105 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box14" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3394, 67 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box22" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2348.11, 106.756 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box23" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2338.11, 68.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box24" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1653.11, 106.756 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box25" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1640.11, 68.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box26" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1748.11, 107.756 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box27" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1738.11, 69.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box8" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 956, 108 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box1" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 472, 108 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box2" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 552, 108 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box3" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 516, 68 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box19" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2692.91, 109.931 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box20" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2773.56, 110.756 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box21" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 2739.56, 70.7559 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box4" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 641, 106 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box5" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1388, 56 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
+[node name="box6" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1308, 108 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 158, 228, 405, 245 )
+
+[node name="box7" type="Sprite" parent="Objects/Box"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1298, 68 )
+scale = Vector2( 0.187207, 0.189182 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 63, 719, 514, 230 )
+
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1276, 520 )
 
@@ -488,7 +615,6 @@ position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
 
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
-frame = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -521,6 +647,7 @@ motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 1500, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+modulate = Color( 0.137255, 0.137255, 0.137255, 1 )
 position = Vector2( 0, 253 )
 texture = ExtResource( 9 )
 centered = false
@@ -531,6 +658,7 @@ __meta__ = {
 }
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+modulate = Color( 0.137255, 0.137255, 0.137255, 1 )
 position = Vector2( 768, 253 )
 texture = ExtResource( 9 )
 centered = false
@@ -550,8 +678,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color( 0.666667, 0.662745, 0.662745, 1 )
-position = Vector2( 0, 146 )
+modulate = Color( 0.156863, 0.156863, 0.156863, 1 )
+position = Vector2( 216, 136 )
 texture = ExtResource( 9 )
 centered = false
 region_enabled = true
@@ -561,7 +689,7 @@ __meta__ = {
 }
 
 [node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-modulate = Color( 0.666667, 0.662745, 0.662745, 1 )
+modulate = Color( 0.156863, 0.156863, 0.156863, 1 )
 position = Vector2( 768, 146 )
 texture = ExtResource( 9 )
 centered = false
