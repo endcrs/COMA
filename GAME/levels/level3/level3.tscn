@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://levels/level1/sprites/10.png" type="Texture" id=1]
+[ext_resource path="res://levels/level2/shaders/florest.tres" type="Material" id=2]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 3296, 44 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 1, 0.585938, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 3 )
+width = 1080
+
+[node name="level3" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 632, 0 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+position = Vector2( -632, 1 )
+scale = Vector2( 4.67692, 1 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( -109.474, 511, 1300, 511, 1300, 1151, -109.474, 1151 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 2152, 556 )
+shape = SubResource( 4 )
+
+[node name="BackgroundBack" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="BackgroundBack"]
+motion_mirroring = Vector2( 1645, 0 )
+
+[node name="Background" type="Sprite" parent="BackgroundBack/ParallaxLayer2"]
+position = Vector2( 0, 900 )
+rotation = -1.5708
+scale = Vector2( 1, 1980 )
+texture = SubResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundBack"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 4000, 0 )
+
+[node name="Tree1" type="Sprite" parent="BackgroundBack/ParallaxLayer"]
+modulate = Color( 0.309804, 0.309804, 0.309804, 1 )
+position = Vector2( 2126, 8 )
+scale = Vector2( 3.12024, 3.59857 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 63, 57, 1748, 314 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BackgroundFront" type="ParallaxBackground" parent="BackgroundBack/ParallaxLayer"]
+layer = 100
+
+[node name="bank" type="Sprite" parent="BackgroundBack/ParallaxLayer/BackgroundFront"]
+modulate = Color( 0.266667, 0.254902, 0.254902, 1 )
+material = ExtResource( 2 )
+position = Vector2( -2, 161 )
+scale = Vector2( 1.58371, 1.58371 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 509, 762, 231, 221 )
+
+[node name="point" type="Sprite" parent="BackgroundBack/ParallaxLayer/BackgroundFront"]
+modulate = Color( 0.243137, 0.243137, 0.243137, 1 )
+material = ExtResource( 2 )
+position = Vector2( 924, 181 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 811, 826, 253, 163 )
+
+[node name="point2" type="Sprite" parent="BackgroundBack/ParallaxLayer/BackgroundFront"]
+modulate = Color( 0.243137, 0.243137, 0.243137, 1 )
+material = ExtResource( 2 )
+position = Vector2( 365, 190 )
+scale = Vector2( 1.49763, 1.49763 )
+texture = ExtResource( 1 )
+centered = false
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 1135, 772, 241, 211 )
