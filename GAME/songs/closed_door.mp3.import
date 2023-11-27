@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/closed_door.mp3-1003107aaf2900b9ab8c5ae2eb79f2cb.mp3str"
+
+[deps]
+
+source_file="res://songs/closed_door.mp3"
+dest_files=[ "res://.import/closed_door.mp3-1003107aaf2900b9ab8c5ae2eb79f2cb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

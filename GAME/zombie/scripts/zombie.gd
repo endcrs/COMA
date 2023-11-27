@@ -15,6 +15,9 @@ onready var deathParticle = get_node("NodeZombie/Body/Neck/ExplosionHead")
 onready var player = get_parent().get_node("Player")
 onready var Head = get_node("NodeZombie/Body/Neck/Head")
 onready var ZombieAnimation = get_node("AnimationPlayer")
+onready var AudioTimer = get_node("AudioTimer")
+
+onready var ZombieAudios = [$ZombieAudio1, $ZombieAudio2, $ZombieAudio3]
 
 var blood = preload("res://zombie/particles/blood.tscn")
 
@@ -65,6 +68,12 @@ func _blood(pos, rot):
 	blood_instance.rotation = rot
 	blood_instance.emitting = true
 	get_tree().get_root().add_child(blood_instance)
+	
+func _song_zombie():
+	# Pega um index aleatório do conjunton de audios do Zumbi
+	var song = ZombieAudios[round(rand_range(0, 2.49))]
+	song.play()
+	AudioTimer.start(4)
 
 # Bullet acertou a cabeça
 func _on_Head_body_entered(body):
@@ -97,6 +106,7 @@ func _on_Legs_body_entered(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "morrendo":
 		queue_free()
+		Global.score += Global.score_enemy
 	
 	if anim_name == "caindo":
 		crounched = false
@@ -115,6 +125,9 @@ func _on_AreaAttack_body_exited(body):
 # Dano no Player
 func _on_AreaDamage_body_entered(body):
 	if (body.is_in_group("player")):
-		body.Life -= 5
+		body.life -= 25
+		body.emit_signal("player_stats_changed", body)
 
-
+# Inicia o som do Zumbi
+func _on_AudioTimer_timeout():
+	_song_zombie()

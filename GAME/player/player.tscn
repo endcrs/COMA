@@ -1,10 +1,12 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://player/sprites/player.svg" type="Texture" id=1]
 [ext_resource path="res://player/scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://player/scripts/limit_back.gd" type="Script" id=3]
 [ext_resource path="res://objects/guns/pistol/sprites/guns.svg" type="Texture" id=4]
 [ext_resource path="res://bullet/sprites/Shoot.svg" type="Texture" id=5]
+[ext_resource path="res://songs/gunshot.mp3" type="AudioStream" id=6]
+[ext_resource path="res://songs/walk.mp3" type="AudioStream" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 20.9565
@@ -15,11 +17,11 @@ animation = "mirando"
 
 [sub_resource type="AnimationNodeBlend2" id=27]
 filter_enabled = true
-filters = [ "NodePlayer/Skeleton2D/Column/Back/Neck/cabeca:rotation_degrees", "NodePlayer/Skeleton2D/Column:position", "NodePlayer/Skeleton2D/Column:rotation_degrees", "NodePlayer/Skeleton2D/LegL/ShinL/FootL:position", "NodePlayer/Skeleton2D/LegL/ShinL/FootL:rotation_degrees", "NodePlayer/Skeleton2D/LegL/ShinL:position", "NodePlayer/Skeleton2D/LegL/ShinL:rotation_degrees", "NodePlayer/Skeleton2D/LegL:position", "NodePlayer/Skeleton2D/LegL:rotation_degrees", "NodePlayer/Skeleton2D/LegR/ShinR/FootR:position", "NodePlayer/Skeleton2D/LegR/ShinR/FootR:rotation_degrees", "NodePlayer/Skeleton2D/LegR/ShinR:position", "NodePlayer/Skeleton2D/LegR/ShinR:rotation_degrees", "NodePlayer/Skeleton2D/LegR:position", "NodePlayer/Skeleton2D/LegR:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:position", "Skeleton2D/coluna:rotation_degrees", "Skeleton2D/perna_d/canela_d/pe_d:position", "Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees", "Skeleton2D/perna_d/canela_d:position", "Skeleton2D/perna_d/canela_d:rotation_degrees", "Skeleton2D/perna_d:position", "Skeleton2D/perna_d:rotation_degrees", "Skeleton2D/perna_e/canela_e/pe_e:position", "Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees", "Skeleton2D/perna_e/canela_e:position", "Skeleton2D/perna_e/canela_e:rotation_degrees", "Skeleton2D/perna_e:position", "Skeleton2D/perna_e:rotation_degrees", "SpritePlayer/esqueleto/coluna:position", "SpritePlayer/esqueleto/coluna:rotation_degrees", "SpritePlayer/esqueleto/perna_d/canela_d/pe_d:position", "SpritePlayer/esqueleto/perna_d/canela_d/pe_d:rotation_degrees", "SpritePlayer/esqueleto/perna_d/canela_d:position", "SpritePlayer/esqueleto/perna_d/canela_d:rotation_degrees", "SpritePlayer/esqueleto/perna_d:position", "SpritePlayer/esqueleto/perna_d:rotation_degrees", "SpritePlayer/esqueleto/perna_e/canela_e/pe_e:position", "SpritePlayer/esqueleto/perna_e/canela_e/pe_e:rotation_degrees", "SpritePlayer/esqueleto/perna_e/canela_e:position", "SpritePlayer/esqueleto/perna_e/canela_e:rotation_degrees", "SpritePlayer/esqueleto/perna_e:position", "SpritePlayer/esqueleto/perna_e:rotation_degrees", "corpo:position", "corpo:rotation_degrees" ]
+filters = [ "NodePlayer/Skeleton2D/Column/Back/Neck/cabeca:rotation_degrees", "NodePlayer/Skeleton2D/Column:position", "NodePlayer/Skeleton2D/Column:rotation_degrees", "NodePlayer/Skeleton2D/LegL/ShinL/FootL:position", "NodePlayer/Skeleton2D/LegL/ShinL/FootL:rotation_degrees", "NodePlayer/Skeleton2D/LegL/ShinL:position", "NodePlayer/Skeleton2D/LegL/ShinL:rotation_degrees", "NodePlayer/Skeleton2D/LegL:position", "NodePlayer/Skeleton2D/LegL:rotation_degrees", "NodePlayer/Skeleton2D/LegR/ShinR/FootR:position", "NodePlayer/Skeleton2D/LegR/ShinR/FootR:rotation_degrees", "NodePlayer/Skeleton2D/LegR/ShinR:position", "NodePlayer/Skeleton2D/LegR/ShinR:rotation_degrees", "NodePlayer/Skeleton2D/LegR:position", "NodePlayer/Skeleton2D/LegR:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:position", "Skeleton2D/coluna:rotation_degrees", "Skeleton2D/perna_d/canela_d/pe_d:position", "Skeleton2D/perna_d/canela_d/pe_d:rotation_degrees", "Skeleton2D/perna_d/canela_d:position", "Skeleton2D/perna_d/canela_d:rotation_degrees", "Skeleton2D/perna_d:position", "Skeleton2D/perna_d:rotation_degrees", "Skeleton2D/perna_e/canela_e/pe_e:position", "Skeleton2D/perna_e/canela_e/pe_e:rotation_degrees", "Skeleton2D/perna_e/canela_e:position", "Skeleton2D/perna_e/canela_e:rotation_degrees", "Skeleton2D/perna_e:position", "Skeleton2D/perna_e:rotation_degrees", "SpritePlayer/esqueleto/coluna:position", "SpritePlayer/esqueleto/coluna:rotation_degrees", "SpritePlayer/esqueleto/perna_d/canela_d/pe_d:position", "SpritePlayer/esqueleto/perna_d/canela_d/pe_d:rotation_degrees", "SpritePlayer/esqueleto/perna_d/canela_d:position", "SpritePlayer/esqueleto/perna_d/canela_d:rotation_degrees", "SpritePlayer/esqueleto/perna_d:position", "SpritePlayer/esqueleto/perna_d:rotation_degrees", "SpritePlayer/esqueleto/perna_e/canela_e/pe_e:position", "SpritePlayer/esqueleto/perna_e/canela_e/pe_e:rotation_degrees", "SpritePlayer/esqueleto/perna_e/canela_e:position", "SpritePlayer/esqueleto/perna_e/canela_e:rotation_degrees", "SpritePlayer/esqueleto/perna_e:position", "SpritePlayer/esqueleto/perna_e:rotation_degrees", "Walk:playing", "corpo:position", "corpo:rotation_degrees" ]
 
 [sub_resource type="AnimationNodeOneShot" id=35]
 filter_enabled = true
-filters = [ "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back:position", "NodePlayer/Skeleton2D/Column/Back:rotation_degrees", "NodePlayer/Skeleton2D/Column:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d:position", "Skeleton2D/coluna/costas/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e:position", "Skeleton2D/coluna/costas/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:position", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:position", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos:position", "SpritePlayer/esqueleto/coluna/costas/bracos:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas:position", "SpritePlayer/esqueleto/coluna/costas:rotation_degrees", "SpritePlayer/esqueleto/coluna:position", "SpritePlayer/esqueleto/coluna:rotation_degrees" ]
+filters = [ "AudioStreamPlayer2D:playing", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun/Sprite:visible", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR/HandR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR/ForeArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmR:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back/NodeArms:position", "NodePlayer/Skeleton2D/Column/Back/NodeArms:rotation_degrees", "NodePlayer/Skeleton2D/Column/Back:position", "NodePlayer/Skeleton2D/Column/Back:rotation_degrees", "NodePlayer/Skeleton2D/Column:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_d:position", "Skeleton2D/coluna/costas/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/braco_e:position", "Skeleton2D/coluna/costas/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_d:position", "Skeleton2D/coluna/costas/bracos/braco_d:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "Skeleton2D/coluna/costas/bracos/braco_e:position", "Skeleton2D/coluna/costas/bracos/braco_e:rotation_degrees", "Skeleton2D/coluna/costas/pescoco/cabeca:position", "Skeleton2D/coluna/costas/pescoco/cabeca:rotation_degrees", "Skeleton2D/coluna/costas/pescoco:position", "Skeleton2D/coluna/costas/pescoco:rotation_degrees", "Skeleton2D/coluna/costas:position", "Skeleton2D/coluna/costas:rotation_degrees", "Skeleton2D/coluna:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d/mao_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d/antebaco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_d:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e/mao_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e/antebaco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:position", "SpritePlayer/esqueleto/coluna/costas/bracos/braco_e:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/bracos:position", "SpritePlayer/esqueleto/coluna/costas/bracos:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca/cabeca:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas/pescoco/cabeca:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:position", "SpritePlayer/esqueleto/coluna/costas/pescoco:rotation_degrees", "SpritePlayer/esqueleto/coluna/costas:position", "SpritePlayer/esqueleto/coluna/costas:rotation_degrees", "SpritePlayer/esqueleto/coluna:position", "SpritePlayer/esqueleto/coluna:rotation_degrees" ]
 fadeout_time = 1.0
 
 [sub_resource type="AnimationNodeAnimation" id=36]
@@ -42,7 +44,7 @@ blend_point_1/node = SubResource( 40 )
 blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=32]
-graph_offset = Vector2( -213.249, 82.2056 )
+graph_offset = Vector2( -480.489, 93.0049 )
 nodes/Idle/node = SubResource( 26 )
 nodes/Idle/position = Vector2( -321.12, 158.4 )
 nodes/IsMovementAim/node = SubResource( 27 )
@@ -58,7 +60,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "TimeScale", 0, "Walk", "TimeScale 3", 0, "Shooter", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "output", 0, "OneShot" ]
+node_connections = [ "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "TimeScale", 0, "Walk", "TimeScale 3", 0, "Shooter", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "output", 0, "OneShot" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -81,7 +83,7 @@ animation = "pulando"
 animation = "correndo_devagar"
 
 [sub_resource type="AnimationNodeBlendTree" id=22]
-graph_offset = Vector2( -742.264, -96.491 )
+graph_offset = Vector2( -849.724, -79.3006 )
 nodes/Fall/node = SubResource( 45 )
 nodes/Fall/position = Vector2( -840, -40 )
 nodes/Idle/node = SubResource( 11 )
@@ -99,7 +101,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "output", 0, "IsOnFloor" ]
+node_connections = [ "TimeWalk", 0, "Walk", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "output", 0, "IsOnFloor" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1
@@ -559,6 +561,30 @@ tracks/36/loop_wrap = true
 tracks/36/imported = false
 tracks/36/enabled = true
 tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("GunsShot:playing")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("Walk:playing")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -3125,6 +3151,34 @@ tracks/35/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/36/type = "method"
+tracks/36/path = NodePath("Walk")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/37/type = "method"
+tracks/37/path = NodePath(".")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0.4, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_play_footstep_audio"
+}, {
+"args": [  ],
+"method": "_play_footstep_audio"
+} ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "mirando"
@@ -3497,6 +3551,18 @@ tracks/30/loop_wrap = true
 tracks/30/imported = false
 tracks/30/enabled = true
 tracks/30/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("Walk:playing")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -3910,6 +3976,18 @@ tracks/33/loop_wrap = true
 tracks/33/imported = false
 tracks/33/enabled = true
 tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("Walk:playing")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -4977,3 +5055,12 @@ anims/mirando = SubResource( 9 )
 anims/parado = SubResource( 5 )
 anims/pulando = SubResource( 44 )
 anims/recarregando = SubResource( 7 )
+
+[node name="GunsShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -25.0
+pitch_scale = 0.8
+
+[node name="Walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -25.0

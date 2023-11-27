@@ -1,6 +1,9 @@
 class_name CharacterBase extends KinematicBody2D
 
-var Life = 25
+var life = 100
+var max_life = 100
+
+signal player_stats_changed
 
 enum StateMachine {
 	IDLE,
@@ -17,7 +20,7 @@ export (int) var JUMP_FORCE = -700
 export (int) var JUMP_RELEASE_FORCE = -400
 export (int) var MAXSPEED = 300
 export (int) var ACCELERATION = 1000
-export (int) var ACCELERATION_BLEND_ANIMATION = 5
+export (int) var ACCELERATION_BLEND_ANIMATION = 6
 export (int) var FRICTION = 5000
 export (int) var GRAVITY = 2000
 export (int) var ADDICIONAL_FALL_GRAVITY = 200
@@ -37,6 +40,9 @@ onready var back : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back")
 onready var neck : Bone2D = get_node("NodePlayer/Skeleton2D/Column/Back/Neck")
 
 onready var endgun : Position2D = get_node("NodePlayer/Skeleton2D/Column/Back/NodeArms/ArmL/ForeArmL/HandL/Pistol/EndGun")
+onready var gunshoot = $GunsShot
+onready var walksong = $Walk
+
 
 var bullet = preload("res://bullet/Bullet.tscn")
 var can_fire = true
@@ -51,7 +57,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	look.look_at(get_global_mouse_position())
 	_move_and_slide()
-	print(Life)
 
 # APLICAR GRAVIDADE
 func _apply_gravity(delta: float) -> void:
@@ -100,6 +105,7 @@ func _aim_mouse(pos: Vector2):
 func _shoot():
 	if can_fire:
 		animationTree.set("parameters/Aim/OneShot/active", true)
+		gunshoot.play()
 		
 		var bullet_instance = bullet.instance()
 		get_parent().add_child(bullet_instance)
@@ -137,3 +143,9 @@ func _enter_state(new_state) -> void:
 	if state != new_state:
 		state = new_state
 		enter_state = true
+
+
+func _play_footstep_audio():
+	if _get_input_axis() != 0 and is_on_floor():
+		walksong.play()
+	

@@ -8,7 +8,7 @@ onready var ZombieTimer = $ZombieTimer
 
 var ZombieSpawner = Vector2.ZERO
 
-var NextZombieTimer = 5
+export var NextZombieTimer = 5
 
 func _ready():
 	randomize()
@@ -16,7 +16,7 @@ func _ready():
 
 func _on_ZombieTimer_timeout():
 	ZombieSpawner.x = rand_range(0, 1)
-	NextZombieTimer = rand_range(3, 7)
+	NextZombieTimer = rand_range(NextZombieTimer, NextZombieTimer + 3)
 	ZombieSpawner.y = ZombieSpawnerLeft.global_position.y
 	var Enemy = PrealoadedZombie.instance()
 	add_child(Enemy)
@@ -25,3 +25,4 @@ func _on_ZombieTimer_timeout():
 		Enemy.position = Vector2(ZombieSpawnerLeft.global_position.x, ZombieSpawnerLeft.global_position.y)
 	else:
 		Enemy.position = Vector2(ZombieSpawnerRight.global_position.x, ZombieSpawnerRight.global_position.y)
+

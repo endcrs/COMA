@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/walk.mp3-2824bcb5227674c1ad47095fb9856152.mp3str"
+
+[deps]
+
+source_file="res://songs/walk.mp3"
+dest_files=[ "res://.import/walk.mp3-2824bcb5227674c1ad47095fb9856152.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

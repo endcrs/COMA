@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://zombie/sprites/zombie.svg" type="Texture" id=1]
 [ext_resource path="res://zombie/scripts/zombie.gd" type="Script" id=2]
 [ext_resource path="res://zombie/particles/explosion_head.tscn" type="PackedScene" id=3]
+[ext_resource path="res://songs/zombie1.mp3" type="AudioStream" id=4]
+[ext_resource path="res://songs/zombie2.mp3" type="AudioStream" id=5]
+[ext_resource path="res://songs/zombie3.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 14.3178
@@ -2531,7 +2534,7 @@ tracks/31/keys = {
 extents = Vector2( 32, 63 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 13, 55 )
+extents = Vector2( 40, 55 )
 
 [node name="zombie" type="KinematicBody2D" groups=["zombie"]]
 light_mask = 2
@@ -2771,12 +2774,31 @@ shape = SubResource( 6 )
 disabled = true
 
 [node name="AreaDamage" type="Area2D" parent="."]
-position = Vector2( 106, 0 )
+position = Vector2( 66, 0 )
 
 [node name="ShapeDamage2D" type="CollisionShape2D" parent="AreaDamage"]
-position = Vector2( -14, 0 )
 shape = SubResource( 12 )
 disabled = true
+
+[node name="ZombieAudio1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+max_distance = 1000.0
+
+[node name="ZombieAudio2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -25.0
+max_distance = 1000.0
+
+[node name="ZombieAudio3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+max_distance = 1000.0
+
+[node name="AudioTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="NodeZombie/Body/Neck/Head/Head" to="." method="_on_Head_body_entered"]
 [connection signal="body_entered" from="NodeZombie/Body/Body" to="." method="_on_Body_body_entered"]
@@ -2786,3 +2808,4 @@ disabled = true
 [connection signal="body_entered" from="AreaAttack" to="." method="_on_AreaAttack_body_entered"]
 [connection signal="body_exited" from="AreaAttack" to="." method="_on_AreaAttack_body_exited"]
 [connection signal="body_entered" from="AreaDamage" to="." method="_on_AreaDamage_body_entered"]
+[connection signal="timeout" from="AudioTimer" to="." method="_on_AudioTimer_timeout"]

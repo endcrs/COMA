@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://objects/moveis/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://objects/moveis/moveis.png" type="Texture" id=2]
@@ -14,6 +14,11 @@
 [ext_resource path="res://levels/level1/sprites/9.png" type="Texture" id=12]
 [ext_resource path="res://objects/fire/Fire.tscn" type="PackedScene" id=13]
 [ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://objects/piano/sprites/piano.png" type="Texture" id=15]
+[ext_resource path="res://objects/piano/sprites/piano bench.png" type="Texture" id=16]
+[ext_resource path="res://musics/apocalypse.mp3" type="AudioStream" id=17]
+[ext_resource path="res://objects/lamp/lamp.png" type="Texture" id=18]
+[ext_resource path="res://player/HUD/HUD.tscn" type="PackedScene" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
@@ -44,10 +49,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 5, 5.1, 5.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0.1, 0.200001, 0.300001, 5, 5.1, 5.2, 7, 7.1, 7.2, 15.5, 15.6, 15.7, 22, 22.1, 22.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 3.0, 0.0, 3.0 ]
+"values": [ 3.0, 0.0, 3.0, 3.0, 0.0, 3.0, 3.0, 0.0, 3.0, 3.0, 0.0, 3.0, 3.0, 0.0, 3.0 ]
 }
 
 [sub_resource type="Environment" id=2]
@@ -61,30 +66,37 @@ glow_bicubic_upscale = true
 adjustment_enabled = true
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.734848 )
-colors = PoolColorArray( 0, 0.194105, 0.666992, 1, 0, 0.0724316, 0.151367, 1 )
+offsets = PoolRealArray( 0, 0.293578 )
+colors = PoolColorArray( 0.071701, 0.115513, 0.144531, 1, 0.0952148, 0.17115, 0.253906, 1 )
 
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
 width = 1080
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 40, 347.5 )
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 8 )
+NextZombieTimer = 4
 
-[node name="InsideWall" type="Polygon2D" parent="."]
+[node name="PolygonInsideWall" type="Polygon2D" parent="."]
 position = Vector2( -174, -594 )
 scale = Vector2( 2.56863, 2.14205 )
-color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+color = Color( 0.0392157, 0.0392157, 0.0470588, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
 polygon = PoolVector2Array( 491.313, 337.06, 491.313, 415.49, 478.855, 415.49, 478.855, 516.328, 731.129, 516.328, 731.129, 400.551, 782.518, 400.551, 782.518, 456.572, 731.129, 456.572, 731.129, 516.328, 1168.72, 516.328, 1168.72, 456.572, 1168.72, 400.551, 1218.55, 400.551, 1218.55, 456.572, 1168.72, 456.572, 1168.72, 516.328, 1654.58, 516.328, 1654.58, 396.816, 1704.41, 396.816, 1704.41, 452.837, 1654.58, 452.837, 1654.58, 516.328, 1899.07, 516.328, 1899.07, 415.49, 1886.61, 415.49, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Wall" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 visible = false
 polygon = PoolVector2Array( 1024, 296, 1088, 296, 1088, 168, 2176, 168, 2176, 296, 2240, 296, 2240, 168, 3520, 168, 3520, 296, 3584, 296, 3584, 168, 4672, 168, 4672, 296, 4736, 296, 4736, 120, 4480, -128, 1280, -128, 1024, 120 )
 
-[node name="Wall" type="Polygon2D" parent="StaticBody2D"]
+[node name="PolygonWall" type="Polygon2D" parent="Wall"]
 position = Vector2( 768, 0 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 256, 296, 256, 120, 512, -128, 3712, -128, 3968, 120, 3904, 128, 3712, -64, 512, -64, 320, 128, 3904, 128, 3968, 120, 3968, 120, 3968, 120, 3968, 120, 3968, 168, 3968, 296, 3904, 296, 3904, 168, 2816, 168, 2816, 296, 2752, 296, 2752, 168, 1472, 168, 1472, 296, 1408, 296, 1408, 168, 320, 168, 320, 296 )
@@ -102,6 +114,7 @@ color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -109.474, 511, 1300, 511, 1300, 1151, -109.474, 1151 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+visible = false
 position = Vector2( 2152, 556 )
 shape = SubResource( 1 )
 
@@ -134,8 +147,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2887, 504 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+position = Vector2( -1, -204 )
+remote_path = NodePath("../../CameraPlayer")
+
 [node name="CameraPlayer" type="Camera2D" parent="."]
-position = Vector2( 1275, 316 )
+position = Vector2( 2886, 300 )
 current = true
 limit_left = 200
 limit_right = 5632
@@ -145,19 +167,6 @@ smoothing_enabled = true
 [node name="Lights" type="Node2D" parent="."]
 position = Vector2( 768, 0 )
 
-[node name="Light2D3" type="Light2D" parent="Lights"]
-position = Vector2( 1784, 178 )
-scale = Vector2( 1.11781, 0.4823 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-energy = 3.0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights/Light2D3"]
-autoplay = "piscando"
-playback_speed = 2.5
-anims/RESET = SubResource( 5 )
-anims/piscando = SubResource( 6 )
-
 [node name="AmbientLight" type="Light2D" parent="Lights"]
 position = Vector2( 2272, -99.5702 )
 scale = Vector2( 3.69605, 0.758771 )
@@ -165,39 +174,65 @@ z_index = 10
 texture = ExtResource( 5 )
 offset = Vector2( 0, 350 )
 shadow_enabled = true
-
-[node name="Light2D4" type="Light2D" parent="Lights"]
-position = Vector2( 2439, 177 )
-scale = Vector2( 1.11781, 0.492783 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-energy = 3.0
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Light2D5" type="Light2D" parent="Lights"]
-position = Vector2( 1124, 348.284 )
-scale = Vector2( 0.284931, 0.26776 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-energy = 3.0
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="fire" type="Light2D" parent="Lights"]
-visible = false
-modulate = Color( 0.854902, 0.168627, 0.168627, 1 )
-position = Vector2( 3073, 310.415 )
-scale = Vector2( 0.78185, 0.275956 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, 350 )
-color = Color( 0.784314, 0.513726, 0.192157, 1 )
-energy = 3.87
 
 [node name="Objects" type="Node2D" parent="."]
 position = Vector2( 768, 0 )
+
+[node name="lamp1" type="Sprite" parent="Objects"]
+position = Vector2( 1784, 192 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 18 )
+
+[node name="Light2D3" type="Light2D" parent="Objects/lamp1"]
+position = Vector2( 0, 160 )
+scale = Vector2( 11.1781, 4.823 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 3.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objects/lamp1/Light2D3"]
+autoplay = "piscando"
+playback_speed = 2.5
+anims/RESET = SubResource( 5 )
+anims/piscando = SubResource( 6 )
+
+[node name="lamp2" type="Sprite" parent="Objects"]
+position = Vector2( 2440, 192 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 18 )
+
+[node name="Light2D4" type="Light2D" parent="Objects/lamp2"]
+position = Vector2( 0.00390625, 160 )
+scale = Vector2( 11.1781, 4.92783 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 4.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="lamp" type="Sprite" parent="Objects"]
+position = Vector2( 1125, 418 )
+scale = Vector2( 0.449941, 0.454686 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 570, 607, 107, 432 )
+
+[node name="Light2D5" type="Light2D" parent="Objects/lamp"]
+position = Vector2( -2.22217, -153.328 )
+scale = Vector2( 0.633263, 0.58889 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 350 )
+energy = 4.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Window" parent="Objects" instance=ExtResource( 7 )]
 position = Vector2( 1002, 323 )
@@ -244,12 +279,17 @@ texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 741, 529, 290, 294 )
 
-[node name="sofa3" type="Sprite" parent="Objects"]
-position = Vector2( 3542, 454 )
-scale = Vector2( 0.485995, 0.49112 )
-texture = ExtResource( 2 )
-region_enabled = true
+[node name="piano" type="Sprite" parent="Objects"]
+modulate = Color( 0.431373, 0.431373, 0.431373, 1 )
+light_mask = 2
+position = Vector2( 3544, 423 )
+scale = Vector2( 0.313204, 0.313204 )
+texture = ExtResource( 15 )
 region_rect = Rect2( 741, 529, 290, 294 )
+
+[node name="pianobench" type="Sprite" parent="Objects/piano"]
+position = Vector2( -7.20117, 229.293 )
+texture = ExtResource( 16 )
 
 [node name="balchony" type="Sprite" parent="Objects"]
 position = Vector2( 1002, 453 )
@@ -257,13 +297,6 @@ scale = Vector2( 0.312537, 0.315833 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 765, 85, 366, 380 )
-
-[node name="lamp" type="Sprite" parent="Objects"]
-position = Vector2( 1125, 418 )
-scale = Vector2( 0.449941, 0.454686 )
-texture = ExtResource( 2 )
-region_enabled = true
-region_rect = Rect2( 570, 607, 107, 432 )
 
 [node name="flower" type="Sprite" parent="Objects"]
 position = Vector2( 1880, 474 )
@@ -328,7 +361,7 @@ texture = ExtResource( 12 )
 region_enabled = true
 region_rect = Rect2( 1364, 687, 374, 285 )
 
-[node name="decoration3" type="Sprite" parent="Objects"]
+[node name="PaintingFrame" type="Sprite" parent="Objects"]
 modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
 position = Vector2( 3683, 308 )
 rotation = 0.000761151
@@ -337,7 +370,7 @@ texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 762, 618, 319, 432 )
 
-[node name="decoration2" type="Sprite" parent="Objects"]
+[node name="fireplace" type="Sprite" parent="Objects"]
 modulate = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 position = Vector2( 3079, 339 )
 rotation = 0.000761151
@@ -349,7 +382,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CampFire" parent="Objects" instance=ExtResource( 13 )]
+[node name="Fire" parent="Objects" instance=ExtResource( 13 )]
 position = Vector2( 3068, 440 )
 rotation = 0.000761151
 scale = Vector2( 0.570609, 0.554942 )
@@ -607,14 +640,8 @@ texture = ExtResource( 10 )
 region_enabled = true
 region_rect = Rect2( 63, 719, 514, 230 )
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1276, 520 )
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-position = Vector2( -1, -204 )
-remote_path = NodePath("../../CameraPlayer")
-
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
+frame = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -625,7 +652,7 @@ environment = SubResource( 2 )
 position = Vector2( -224, 512 )
 
 [node name="ZombieSpawnerRight" type="Position2D" parent="."]
-position = Vector2( 5696, 512 )
+position = Vector2( 5888, 512 )
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 
@@ -633,20 +660,17 @@ position = Vector2( 5696, 512 )
 motion_mirroring = Vector2( 1980, 0 )
 
 [node name="Background" type="Sprite" parent="ParallaxBackground2/ParallaxLayer2"]
-position = Vector2( 0, 900 )
+position = Vector2( 1.74129e-07, 526 )
 rotation = -1.5708
 scale = Vector2( 1, 1980 )
 texture = SubResource( 4 )
 centered = false
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
 motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 1500, 0 )
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+[node name="Tree1" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
 modulate = Color( 0.137255, 0.137255, 0.137255, 1 )
 position = Vector2( 0, 253 )
 texture = ExtResource( 9 )
@@ -657,7 +681,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
+[node name="Tree2" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
 modulate = Color( 0.137255, 0.137255, 0.137255, 1 )
 position = Vector2( 768, 253 )
 texture = ExtResource( 9 )
@@ -677,18 +701,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Tree1" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color( 0.156863, 0.156863, 0.156863, 1 )
-position = Vector2( 216, 136 )
+position = Vector2( 0, 136 )
 texture = ExtResource( 9 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 77, 600, 883, 373 )
-__meta__ = {
-"_edit_lock_": true
-}
 
-[node name="Sprite2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Tree2" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 modulate = Color( 0.156863, 0.156863, 0.156863, 1 )
 position = Vector2( 768, 146 )
 texture = ExtResource( 9 )
@@ -699,4 +720,29 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -10.0
+autoplay = true
+
+[node name="CollisionExtremity1" type="StaticBody2D" parent="."]
+position = Vector2( 192, 168 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionExtremity1"]
+shape = SubResource( 7 )
+
+[node name="CollisionExtremity2" type="StaticBody2D" parent="."]
+position = Vector2( 5632, 71 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionExtremity2"]
+position = Vector2( 0, 97 )
+shape = SubResource( 7 )
+
+[node name="HUD" parent="." instance=ExtResource( 19 )]
+
+[connection signal="player_stats_changed" from="Player" to="HUD" method="_on_Player_player_stats_changed"]
 [connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]

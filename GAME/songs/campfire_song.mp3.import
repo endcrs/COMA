@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/campfire_song.mp3-f597e5af0885643c01bd642b37842f2b.mp3str"
+
+[deps]
+
+source_file="res://songs/campfire_song.mp3"
+dest_files=[ "res://.import/campfire_song.mp3-f597e5af0885643c01bd642b37842f2b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

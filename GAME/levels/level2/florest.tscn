@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/level2/sprites/4.png" type="Texture" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/level2/sprites/Design sem nome.png" type="Texture" id=3]
 [ext_resource path="res://levels/level2/shaders/florest.tres" type="Material" id=4]
+[ext_resource path="res://levels/scripts/Level.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 40, 347.5 )
 
 [sub_resource type="Gradient" id=3]
 colors = PoolColorArray( 1, 0.585938, 0, 1, 1, 1, 1, 1 )
@@ -13,12 +17,43 @@ gradient = SubResource( 3 )
 width = 1080
 
 [node name="Forest" type="Node2D"]
+script = ExtResource( 5 )
+NextZombieTimer = 2
+
+[node name="CollisionExtremity1" type="StaticBody2D" parent="."]
+position = Vector2( 192, 192 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionExtremity1"]
+shape = SubResource( 4 )
+
+[node name="CollisionExtremity2" type="StaticBody2D" parent="."]
+position = Vector2( 4808, 72 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionExtremity2"]
+position = Vector2( 0, 97 )
+shape = SubResource( 4 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
+position = Vector2( 31, 501 )
+scale = Vector2( 5, 1 )
+polygon = PoolVector2Array( 52.621, 31, 157.863, 18, 206.048, 28, 338.306, 47, 422.984, 88, 503.024, 59, 585.887, 39, 664.315, 25, 766.734, 7, 882.46, 4, 956.25, 15, 1109, 11, 1107.4, 651, -108.6, 651, -108.6, 11 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Floor"]
+position = Vector2( -51, -7 )
+scale = Vector2( 5, 1 )
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 2.35198, 522, 68.8487, 533, 178.6, 523, 268.8, 539, 355, 551, 440, 595, 548.2, 554, 672.8, 528, 824.4, 507, 905.8, 507, 973.4, 517, 973.6, 1156, 0.641448, 1163 )
 
 [node name="BackgroundFront" type="ParallaxBackground" parent="."]
 layer = 100
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundFront"]
-motion_scale = Vector2( 0.8, 1 )
 motion_mirroring = Vector2( 2585.4, 0 )
 
 [node name="Tree1" type="Sprite" parent="BackgroundFront/ParallaxLayer"]
@@ -40,19 +75,6 @@ centered = false
 flip_h = true
 region_enabled = true
 region_rect = Rect2( 108, 48, 662, 432 )
-
-[node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
-position = Vector2( 31, 501 )
-scale = Vector2( 5, 1 )
-polygon = PoolVector2Array( 52.621, 31, 157.863, 18, 206.048, 28, 338.306, 47, 422.984, 88, 503.024, 59, 585.887, 39, 664.315, 25, 766.734, 7, 882.46, 4, 956.25, 15, 953.8, -693, 966.6, -693, 966.6, 651, 953.8, 651, -19, 651, -19, -501, -6.2, -501, -6.2, 19 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Floor"]
-position = Vector2( -51, -7 )
-scale = Vector2( 5, 1 )
-color = Color( 0, 0, 0, 1 )
-polygon = PoolVector2Array( 2.35198, 522, 68.8487, 533, 178.6, 523, 268.8, 539, 355, 551, 440, 595, 548.2, 554, 672.8, 528, 824.4, 507, 905.8, 507, 973.4, 517, 973.6, 1156, 0.641448, 1163 )
 
 [node name="BackgroundBack" type="ParallaxBackground" parent="."]
 
@@ -88,7 +110,7 @@ region_enabled = true
 region_rect = Rect2( 108, 540, 731, 432 )
 
 [node name="CameraPlayer" type="Camera2D" parent="."]
-position = Vector2( 1287, 292 )
+position = Vector2( 1015, 268 )
 current = true
 limit_left = 200
 limit_right = 4800
@@ -96,8 +118,20 @@ limit_smoothed = true
 smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1288, 496 )
+position = Vector2( 1016, 472 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
+
+[node name="ZombieSpawnerLeft" type="Position2D" parent="."]
+position = Vector2( -192, 512 )
+
+[node name="ZombieSpawnerRight" type="Position2D" parent="."]
+position = Vector2( 5184, 496 )
+
+[node name="ZombieTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]
