@@ -99,6 +99,9 @@ p{
     justify-content: center;
 
 }
+#download > a{
+    color: #1DE856;
+}
 
 #download:hover{
     transform: scale(1.1);

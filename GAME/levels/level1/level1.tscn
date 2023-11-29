@@ -641,7 +641,7 @@ region_enabled = true
 region_rect = Rect2( 63, 719, 514, 230 )
 
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
-frame = 0
+frame = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
