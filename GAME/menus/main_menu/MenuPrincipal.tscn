@@ -77,7 +77,7 @@ nodes/TimeScale/position = Vector2( -320, 340 )
 nodes/Walk/node = SubResource( 41 )
 nodes/Walk/position = Vector2( -520, 340 )
 nodes/output/position = Vector2( 720, 140 )
-node_connections = [ "TimeScale", 0, "Walk", "TimeScale 3", 0, "Shooter", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "output", 0, "OneShot" ]
+node_connections = [ "TimeScale", 0, "Walk", "TimeScale 3", 0, "Shooter", "OneShot", 0, "IsMovementAim", "OneShot", 1, "TimeScale 3", "IsMovementAim", 0, "Idle", "IsMovementAim", 1, "TimeScale", "output", 0, "OneShot" ]
 
 [sub_resource type="AnimationNodeAnimation" id=45]
 animation = "caindo"
@@ -118,7 +118,7 @@ nodes/TimeWalk/position = Vector2( -840, 320 )
 nodes/Walk/node = SubResource( 42 )
 nodes/Walk/position = Vector2( -1080, 320 )
 nodes/output/position = Vector2( -40, 0 )
-node_connections = [ "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "TimeWalk", 0, "Walk", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "output", 0, "IsOnFloor" ]
+node_connections = [ "JumpOrFall", 0, "Jump", "JumpOrFall", 1, "Fall", "IsOnFloor", 0, "JumpOrFall", "IsOnFloor", 1, "IsMoviment", "IsMoviment", 0, "Idle", "IsMoviment", 1, "TimeWalk", "TimeWalk", 0, "Walk", "output", 0, "IsOnFloor" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 xfade_time = 0.1
@@ -5946,6 +5946,7 @@ anims/firelight = SubResource( 63 )
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="pianobench" type="Sprite" parent="Objects"]
+modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 952, 688 )
 scale = Vector2( 0.601013, 0.611875 )
 texture = ExtResource( 7 )
@@ -6054,7 +6055,7 @@ region_enabled = true
 region_rect = Rect2( 135, 196, 768, 260 )
 
 [node name="Cursor" parent="." instance=ExtResource( 21 )]
-frame = 1
+frame = 0
 
 [node name="AmbientLight" type="Light2D" parent="."]
 position = Vector2( 655, 34.9298 )
