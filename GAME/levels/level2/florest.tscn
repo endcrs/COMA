@@ -1,24 +1,29 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://levels/level2/sprites/4.png" type="Texture" id=1]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/level2/sprites/Design sem nome.png" type="Texture" id=3]
 [ext_resource path="res://levels/level2/shaders/florest.tres" type="Material" id=4]
 [ext_resource path="res://levels/scripts/Level.gd" type="Script" id=5]
+[ext_resource path="res://player/HUD/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://images/cursor/cursor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://musics/Florest.mp3" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 40, 347.5 )
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=5]
 colors = PoolColorArray( 1, 0.585938, 0, 1, 1, 1, 1, 1 )
 
 [sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 3 )
+gradient = SubResource( 5 )
 width = 1080
 
 [node name="Forest" type="Node2D"]
 script = ExtResource( 5 )
 NextZombieTimer = 2
+
+[node name="Cursor" parent="." instance=ExtResource( 7 )]
 
 [node name="CollisionExtremity1" type="StaticBody2D" parent="."]
 position = Vector2( 192, 192 )
@@ -110,7 +115,7 @@ region_enabled = true
 region_rect = Rect2( 108, 540, 731, 432 )
 
 [node name="CameraPlayer" type="Camera2D" parent="."]
-position = Vector2( 1015, 268 )
+position = Vector2( 1383, 332 )
 current = true
 limit_left = 200
 limit_right = 4800
@@ -118,7 +123,7 @@ limit_smoothed = true
 smoothing_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1016, 472 )
+position = Vector2( 1384, 536 )
 collision_layer = 3
 collision_mask = 3
 
@@ -134,4 +139,12 @@ position = Vector2( 5184, 496 )
 
 [node name="ZombieTimer" type="Timer" parent="."]
 
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="player_stats_changed" from="Player" to="HUD" method="_on_Player_player_stats_changed"]
 [connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]

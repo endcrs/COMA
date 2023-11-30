@@ -54,20 +54,21 @@ color = Color( 0.784314, 0.0823529, 0.0823529, 1 )
 position = Vector2( 16, 16 )
 frames = SubResource( 8 )
 animation = "slow"
+frame = 12
 playing = true
 
 [node name="Time" type="Label" parent="."]
-margin_left = 758.0
+margin_left = 683.0
 margin_top = 32.0
-margin_right = 790.0
+margin_right = 715.0
 margin_bottom = 84.0
 custom_fonts/font = SubResource( 9 )
 text = "00"
 
 [node name="Score" type="Label" parent="."]
-margin_left = 1353.0
+margin_left = 1187.0
 margin_top = 32.0
-margin_right = 1450.0
+margin_right = 1284.0
 margin_bottom = 84.0
 custom_fonts/font = SubResource( 9 )
 text = "Score: "

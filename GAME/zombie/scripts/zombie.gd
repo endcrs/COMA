@@ -127,6 +127,9 @@ func _on_AreaDamage_body_entered(body):
 	if (body.is_in_group("player")):
 		body.life -= 25
 		body.emit_signal("player_stats_changed", body)
+		
+		if body.life <= 0:
+			get_tree().change_scene("res://menus/game_over/game_over.tscn")
 
 # Inicia o som do Zumbi
 func _on_AudioTimer_timeout():

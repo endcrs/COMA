@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://objects/moveis/pngwing.com.png" type="Texture" id=1]
 [ext_resource path="res://objects/moveis/moveis.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://musics/apocalypse.mp3" type="AudioStream" id=17]
 [ext_resource path="res://objects/lamp/lamp.png" type="Texture" id=18]
 [ext_resource path="res://player/HUD/HUD.tscn" type="PackedScene" id=19]
+[ext_resource path="res://menus/pause_menu/MenuPause.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3296, 44 )
@@ -65,12 +66,12 @@ glow_hdr_threshold = 1.5
 glow_bicubic_upscale = true
 adjustment_enabled = true
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.293578 )
 colors = PoolColorArray( 0.071701, 0.115513, 0.144531, 1, 0.0952148, 0.17115, 0.253906, 1 )
 
 [sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+gradient = SubResource( 8 )
 width = 1080
 
 [sub_resource type="RectangleShape2D" id=7]
@@ -86,9 +87,6 @@ scale = Vector2( 2.56863, 2.14205 )
 color = Color( 0.0392157, 0.0392157, 0.0470588, 1 )
 texture_scale = Vector2( 0.314, 1.956 )
 polygon = PoolVector2Array( 491.313, 337.06, 491.313, 415.49, 478.855, 415.49, 478.855, 516.328, 731.129, 516.328, 731.129, 400.551, 782.518, 400.551, 782.518, 456.572, 731.129, 456.572, 731.129, 516.328, 1168.72, 516.328, 1168.72, 456.572, 1168.72, 400.551, 1218.55, 400.551, 1218.55, 456.572, 1168.72, 456.572, 1168.72, 516.328, 1654.58, 516.328, 1654.58, 396.816, 1704.41, 396.816, 1704.41, 452.837, 1654.58, 452.837, 1654.58, 516.328, 1899.07, 516.328, 1899.07, 415.49, 1886.61, 415.49, 1886.61, 337.06, 1811.86, 247.427, 566.061, 247.427 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Wall" type="StaticBody2D" parent="."]
 
@@ -100,9 +98,6 @@ polygon = PoolVector2Array( 1024, 296, 1088, 296, 1088, 168, 2176, 168, 2176, 29
 position = Vector2( 768, 0 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( 256, 296, 256, 120, 512, -128, 3712, -128, 3968, 120, 3904, 128, 3712, -64, 512, -64, 320, 128, 3904, 128, 3968, 120, 3968, 120, 3968, 120, 3968, 120, 3968, 168, 3968, 296, 3904, 296, 3904, 168, 2816, 168, 2816, 296, 2752, 296, 2752, 168, 1472, 168, 1472, 296, 1408, 296, 1408, 168, 320, 168, 320, 296 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 632, 0 )
@@ -148,7 +143,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2887, 504 )
+position = Vector2( 2887, 513 )
 collision_layer = 3
 collision_mask = 3
 
@@ -157,7 +152,7 @@ position = Vector2( -1, -204 )
 remote_path = NodePath("../../CameraPlayer")
 
 [node name="CameraPlayer" type="Camera2D" parent="."]
-position = Vector2( 2886, 300 )
+position = Vector2( 2886, 309 )
 current = true
 limit_left = 200
 limit_right = 5632
@@ -378,12 +373,9 @@ scale = Vector2( 0.570609, 0.554942 )
 texture = ExtResource( 11 )
 region_enabled = true
 region_rect = Rect2( 688, 348.141, 574.144, 623.859 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Fire" parent="Objects" instance=ExtResource( 13 )]
-position = Vector2( 3068, 440 )
+position = Vector2( 3069, 449 )
 rotation = 0.000761151
 scale = Vector2( 0.570609, 0.554942 )
 
@@ -641,7 +633,7 @@ region_enabled = true
 region_rect = Rect2( 63, 719, 514, 230 )
 
 [node name="Cursor" parent="." instance=ExtResource( 6 )]
-frame = 0
+frame = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -721,6 +713,7 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 17 )
 volume_db = -10.0
 autoplay = true
@@ -743,6 +736,9 @@ position = Vector2( 0, 97 )
 shape = SubResource( 7 )
 
 [node name="HUD" parent="." instance=ExtResource( 19 )]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 20 )]
+visible = false
 
 [connection signal="player_stats_changed" from="Player" to="HUD" method="_on_Player_player_stats_changed"]
 [connection signal="timeout" from="ZombieTimer" to="." method="_on_ZombieTimer_timeout"]

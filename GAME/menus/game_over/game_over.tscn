@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://menus/game_over/sprites/game_over.jpg" type="Texture" id=1]
+[ext_resource path="res://menus/game_over/scripts/game_over.gd" type="Script" id=2]
+[ext_resource path="res://musics/gameover.mp3" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+
+[node name="GameOver" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.06875, 1.06667 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1366.0
+margin_bottom = 768.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Fade"
+anims/Fade = SubResource( 1 )
+anims/RESET = SubResource( 2 )

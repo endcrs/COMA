@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo-4fun.svg-642c89f89e27015780be8e6dc30ee541.stex"
+path="res://.import/piano_beside.png-8c1ddfe71c871308d9576d3b4e4e4f86.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/logo-4fun.svg"
-dest_files=[ "res://.import/logo-4fun.svg-642c89f89e27015780be8e6dc30ee541.stex" ]
+source_file="res://objects/piano/sprites/piano_beside.png"
+dest_files=[ "res://.import/piano_beside.png-8c1ddfe71c871308d9576d3b4e4e4f86.stex" ]
 
 [params]
 
@@ -32,4 +32,4 @@ process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
-svg/scale=4.0
+svg/scale=1.0

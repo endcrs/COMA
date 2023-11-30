@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gameover.mp3-fe5b530224dba3e551ac4a7055cacaa7.mp3str"
+
+[deps]
+
+source_file="res://musics/gameover.mp3"
+dest_files=[ "res://.import/gameover.mp3-fe5b530224dba3e551ac4a7055cacaa7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

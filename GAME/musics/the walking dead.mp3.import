@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/the walking dead.mp3-8f648218462c764631f07d48722dd84b.mp3str"
+
+[deps]
+
+source_file="res://musics/the walking dead.mp3"
+dest_files=[ "res://.import/the walking dead.mp3-8f648218462c764631f07d48722dd84b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
