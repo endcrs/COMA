@@ -22,7 +22,6 @@ _global_script_class_icons={
 
 config/name="COMA"
 run/main_scene="res://menus/main_menu/MenuPrincipal.tscn"
-config/icon="res://icon.png"
 
 [autoload]
 
